@@ -1,15 +1,21 @@
 <div class="comment-div">
   <div>
     <div class="comment-header">
-      <img src={{@comment.user.image.png}} alt="avatar">
+      <div class="avatar">
+        <img src={{@comment.user.image.png}} alt="avatar">
+</div>
       <p>{{@comment.user.username}}</p>
       <p>{{@comment.createdAt}}</p>
     </div>
     <div class="comment-text">{{@comment.content}}</div>
   </div>
-  <div class="count"></div>
+  <div class="count">
+    <img src="../../images/icon-plus.svg" alt="plus icon">
+    <span class="score">{{@comment.score}}</span>
+    <img src="../../images/icon-minus.svg" alt="minus icon">
+  </div>
   <div class="reply">
-    <img  src="../../images/icon-reply.svg" alt="reply icon"/>
+    <img src="../../images/icon-reply.svg" alt="reply icon"/>
     <span>reply</span>
   </div>
 </div>
