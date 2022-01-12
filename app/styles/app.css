@@ -19,9 +19,9 @@ html {
 
 body {
   padding: 0;
-  background: #F2F2F2;
-  height: 100%;
-  width: 100%;
+  /* background: #F2F2F2; */
+  background: rgb(255, 255, 255);
+  width: 80%;
   color: #67727E;
   overflow-x: hidden;
   font-family: 'Rubik', sans-serif;
@@ -40,14 +40,58 @@ a:hover {
 
 .comment-header {
   display: flex;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.comment-text {
+  margin-left: 10%;
+}
+
+.comment-header p {
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }
 
 .comment-div {
   position: relative;
+  /* height: 300px; */
+}
+
+.count,
+.reply {
+  position: absolute;
+  top: 0.625em;
+  /* padding: 5%; */
+  /* background-color: aquamarine; */
+  /* height: 3.125em; */
+  /* width: 5%; */
+}
+
+.count {
+  display: flex;
+  flex-direction: column;
+  /* background-color: aquamarine; */
+  background: #F5F6FA;
+  border-radius: 10px;
+  width: 1.875em;
+  height: 7em;
+  padding: 2%;
+  left: 3%;
+}
+
+.reply {
+  background-color: blue;
+  width: 1.875em;
+  left: 87vw;
+  height: 3.125em;
 }
 
 @media (min-width: 20em) and (max-width: 36em) {
-  .count {
+  .count,
+  .reply {
     position: absolute;
     top: 80%;
   }

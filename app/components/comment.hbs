@@ -1,8 +1,13 @@
 <div class="comment-div">
   <div>
-    <div class="comment-header"></div>
+    <div class="comment-header">
+      <img src={{@comment.user.image.png}} alt="avatar">
+      <p>{{@comment.user.username}}</p>
+      <p>{{@comment.createdAt}}</p>
+    </div>
     <div class="comment-text">{{@comment.content}}</div>
   </div>
   <div class="count"></div>
-  <div class="reply"></div>
+  <div class="reply">
+  </div>
 </div>
