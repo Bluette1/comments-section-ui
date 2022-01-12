@@ -1,9 +1,9 @@
-<div>
-<div class="comments">
-  <ul class="results">
+<div class="container-main">
+  <div>
+    <ul class="details">
     {{#each @model.comments as |comment|}}
       <li><Comment @comment={{comment}} /></li>
     {{/each}}
   </ul>
-</div>
+  </div>
 </div>
