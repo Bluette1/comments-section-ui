@@ -1,0 +1,9 @@
+<div>
+<div class="comments">
+  <ul class="results">
+    {{#each @model.comments as |comment|}}
+      <li><Comment @comment={{comment}} /></li>
+    {{/each}}
+  </ul>
+</div>
+</div>
