@@ -87,9 +87,9 @@ a:hover {
 }
 
 .reply {
-  left: 87%;
   width: 3.75em;
   color: #5357B6;
+  left: 87%;
 }
 
 .reply span {
@@ -104,11 +104,30 @@ a:hover {
   .count,
   .reply {
     position: absolute;
-    top: 80%;
+    top: 110%;
   }
-}
-
-
-}
-
+  .count {
+    flex-direction: row;
+    margin-top: 2%;
+    height: 2.5em;
+    width: 25%;
+    border-radius: 5%;
+    margin-left: 7%;
+  }
+  .minus-icon {
+    margin-top: -3px;
+  }
+  .reply {
+    left: 75%;
+    top: 115%;
+  }
+  .comment-div {
+    margin-top: 28%;
+    margin-bottom: 20%;
+  }
+  .comment-header,
+  .comment-text {
+    margin-left: 7%;
+    margin-right: 7%;
+  }
 }
