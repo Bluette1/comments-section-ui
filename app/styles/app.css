@@ -127,7 +127,7 @@ a:hover {
   .count,
   .reply {
     position: absolute;
-    top: 110%;
+    top: 80%;
   }
   .count {
     flex-direction: row;
@@ -142,15 +142,25 @@ a:hover {
   }
   .reply {
     left: 75%;
-    top: 115%;
+    top: 85%;
   }
   .comment-div {
-    margin-top: 28%;
-    margin-bottom: 20%;
+    margin-bottom: 6%;
+    padding-bottom: 30%;
+    padding-top: 2%;
   }
   .comment-header,
   .comment-text {
     margin-left: 7%;
     margin-right: 7%;
+  }
+  .comment-header {
+    margin-top: 0%;
+  }
+  .reply-container {
+    margin-left: 0%;
+  }
+  .reply-line {
+    margin-right: 2%;
   }
 }
