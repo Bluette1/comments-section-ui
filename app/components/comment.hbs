@@ -19,3 +19,31 @@
     <span>reply</span>
   </div>
 </div>
+
+{{#each @comment.replies as |reply|}}
+<div class="reply-container">
+  <div class="reply-line"></div>
+      <div class="comment-div reply-div">
+<div>
+  <div class="comment-header">
+    <div class="avatar">
+      <img src={{reply.user.image.png}} alt="avatar">
+    </div>
+    <p><strong>{{reply.user.username}}</strong></p>
+    <p>{{reply.createdAt}}</p>
+  </div>
+  <div class="comment-text">{{reply.content}}</div>
+</div>
+<div class="count">
+  <div><img src="../../images/icon-plus.svg" alt="plus icon"></div>
+  <span class="score">{{reply.score}}</span>
+  <div class="minus-icon"><img src="../../images/icon-minus.svg" alt="minus icon"></div>
+</div>
+<div class="reply">
+  <img src="../../images/icon-reply.svg" alt="reply icon"/>
+  <span>reply</span>
+</div>
+</div>
+</div>
+{{/each}}
+

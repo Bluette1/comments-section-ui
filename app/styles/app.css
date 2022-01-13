@@ -19,7 +19,7 @@ html {
 
 body {
   padding: 0;
-  background: rgb(255, 255, 255);
+  background: #F2F2F2;
   font-family: 'Rubik', sans-serif;
   position: relative;
   display: flex;
@@ -45,7 +45,8 @@ a:hover {
 
 .comment-header {
   display: flex;
-  margin-top: 5%;
+  margin-top: 2%;
+  padding-top: 2%;
   margin-left: 10%;
 }
 
@@ -56,12 +57,13 @@ a:hover {
 .comment-header p {
   padding-left: 2%;
   padding-right: 2%;
-  padding-top: 2%;
   padding-bottom: 3%;
 }
 
 .comment-div {
   position: relative;
+  background: rgb(255, 255, 255);
+  padding-bottom: 3%;
 }
 
 .count,
@@ -98,6 +100,27 @@ a:hover {
 
 .container-main {
   max-width: 64em;
+}
+
+.reply-div {
+  margin-top: 2%;
+}
+
+.reply-div .comment-header {
+  margin-top: -1%;
+}
+
+.reply-line {
+  width: 2px;
+  height: 174px;
+  background: #E9EBF0;
+  margin-right: 5%;
+  margin-top: 2%;
+}
+
+.reply-container {
+  display: flex;
+  margin-left: 5%;
 }
 
 @media (min-width: 20em) and (max-width: 36em) {
