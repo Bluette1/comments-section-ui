@@ -5,9 +5,9 @@ import { setupApplicationTest } from 'ember-qunit';
 module('Acceptance | comments section ui', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /comments-section-ui', async function (assert) {
-    await visit('/comments-section-ui');
+  test('visiting /', async function (assert) {
+    await visit('/');
 
-    assert.strictEqual(currentURL(), '/comments-section-ui');
+    assert.strictEqual(currentURL(), '/');
   });
 });

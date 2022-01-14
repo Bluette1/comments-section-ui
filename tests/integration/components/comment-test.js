@@ -12,15 +12,6 @@ module('Integration | Component | comment', function (hooks) {
 
     await render(hbs`<Comment />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Comment>
-        template block text
-      </Comment>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasText('reply');
   });
 });
