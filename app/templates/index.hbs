@@ -2,7 +2,7 @@
   <div>
     <ul class="details">
     {{#each @model.comments as |comment|}}
-      <li><Comment @comment={{comment}} /></li>
+      <li><CommentSection @commentReply={{comment}} /></li>
     {{/each}}
   </ul>
   </div>

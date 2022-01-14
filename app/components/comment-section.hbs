@@ -1,0 +1,7 @@
+<Comment @comment={{@commentReply}} />
+{{#each @commentReply.replies as |reply|}}
+<div class="reply-container">
+  <div class="reply-line"></div>
+  <Comment @comment={{reply}} @reply={{true}} />
+</div>
+{{/each}}
