@@ -1,4 +1,11 @@
-<div>
+  {{#if this.showEditInput}}
+    {{!-- show edit input --}}
+
+    <Input @content={{this.content}} @currentUsr={{@currentUser}} @update={{true}}/>
+
+  {{else}}
+    {{!-- show comment --}}
+    <div>
   <div class="comment-div {{if this.isReply "reply-div"}}">
   <div>
     <div class="comment-header">
@@ -36,3 +43,5 @@
   <Input @currentUsr={{@currentUser}} @reply={{true}}/>
 {{/if}}
 </div>
+
+  {{/if}}
