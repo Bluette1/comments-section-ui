@@ -5,7 +5,9 @@
   <textarea />
 
   <div class="reply-btn">
-    <button type="button">Reply</button>
+    <button type="button">
+      {{if @reply "Reply" "Send"}}
+    </button>
   </div>
   
 </div>
