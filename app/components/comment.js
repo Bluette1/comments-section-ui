@@ -13,4 +13,9 @@ export default class Comment extends Component {
   @action textInput() {
     this.showTextBox = !this.showTextBox;
   }
+
+  get replyTo(){
+    const { comment: { replyingTo} } = this.args;
+    return `@${replyingTo}`;
+  }
 }

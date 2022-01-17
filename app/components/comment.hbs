@@ -8,7 +8,7 @@
       <p><strong>{{@comment.user.username}}</strong></p>
       <p>{{@comment.createdAt}}</p>
     </div>
-    <div class="comment-text">{{@comment.content}}</div>
+    <div class="comment-text">{{#if this.isReply}} <span>{{this.replyTo}}</span> {{/if}} {{@comment.content}}</div>
   </div>
   <div class="count">
     <div><img src="../../images/icon-plus.svg" alt="plus icon"></div>
@@ -16,8 +16,8 @@
     <div class="minus-icon"><img src="../../images/icon-minus.svg" alt="minus icon"></div>
   </div>
   <div class="reply" {{on "click" this.textInput}}>
-    <img src="../../images/icon-reply.svg" alt="reply icon"/>
-    <span>reply</span>
+    <div><img src="../../images/icon-reply.svg" alt="reply icon"/></div>
+    <span>Reply</span>
   </div>
 </div>
 {{#if this.showTextBox}}

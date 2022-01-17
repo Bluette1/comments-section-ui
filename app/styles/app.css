@@ -55,6 +55,11 @@
       margin-left: 10%;
     }
     
+    .comment-text span {
+      color: #5357B6;
+      font-weight: 500;
+    }
+    
     .comment-header p {
       padding-left: 2%;
       padding-right: 2%;
@@ -94,10 +99,12 @@
       color: #5357B6;
       left: 87%;
       cursor: pointer;
+      display: flex;
     }
     
     .reply span {
-      padding-left: 5%;
+      padding-left: 18%;
+      font-weight: 500;
     }
     
     .container-main {
