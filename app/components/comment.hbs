@@ -14,8 +14,11 @@
     <span class="score">{{@comment.score}}</span>
     <div class="minus-icon"><img src="../../images/icon-minus.svg" alt="minus icon"></div>
   </div>
-  <div class="reply">
+  <div class="reply" {{on "click" this.textInput}}>
     <img src="../../images/icon-reply.svg" alt="reply icon"/>
     <span>reply</span>
   </div>
 </div>
+{{#if this.showTextBox}}
+  <Input @currentUsr={{@currentUser}} />
+{{/if}}

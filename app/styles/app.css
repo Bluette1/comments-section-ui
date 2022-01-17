@@ -92,6 +92,7 @@ a:hover {
   width: 3.75em;
   color: #5357B6;
   left: 87%;
+  cursor: pointer;
 }
 
 .reply span {
@@ -121,6 +122,21 @@ a:hover {
 .reply-container {
   display: flex;
   margin-left: 5%;
+}
+
+.input-div {}
+
+.input-div-display {
+  display: flex;
+}
+
+.input-div-display-none {
+  display: none;
+}
+
+.reply-btn {
+  color: #ffffff;
+  pad
 }
 
 @media (min-width: 20em) and (max-width: 36em) {
