@@ -18,4 +18,13 @@ export default class Comment extends Component {
     const { comment: { replyingTo} } = this.args;
     return `@${replyingTo}`;
   }
+
+  get isCurrentUser() {
+    const { comment: { user: { username } }, currentUser: {username: currUser}} = this.args;
+    return username === currUser;
+  }
+
+  edit() {}
+
+  delete() {}
 }
