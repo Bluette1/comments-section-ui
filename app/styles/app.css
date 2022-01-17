@@ -124,19 +124,33 @@ a:hover {
   margin-left: 5%;
 }
 
-.input-div {}
-
-.input-div-display {
+.input-div {
   display: flex;
+  background-color: #ffffff;
+  padding-bottom: 3%;
+  padding: 2% 3% 2% 3%;
+  height: 180px;
+  margin-top: 3%;
+  margin-bottom: 5%;
 }
 
-.input-div-display-none {
-  display: none;
+.input-div textarea {
+  flex-grow: 12;
+  border: solid 1px #5357B6;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .reply-btn {
+  flex-grow: 2;
+}
+
+.reply-btn button {
   color: #ffffff;
-  pad
+  background: #5357B6;
+  text-transform: uppercase;
+  padding: 8% 16% 8% 16%;
+  border-radius: 8%;
 }
 
 @media (min-width: 20em) and (max-width: 36em) {
