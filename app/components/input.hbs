@@ -9,7 +9,7 @@
     <textarea placeholder="Add a comment..." />
   {{/if}}
 
-  <div class="reply-btn">
+  <div class="reply-btn {{if @update "update-btn"}}">
     <button type="button">
       {{#if @reply}}
         Reply
