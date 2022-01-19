@@ -15,13 +15,20 @@ export default class Comment extends Component {
     this.showTextBox = !this.showTextBox;
   }
 
-  get replyTo(){
-    const { comment: { replyingTo} } = this.args;
+  get replyTo() {
+    const {
+      comment: { replyingTo },
+    } = this.args;
     return `@${replyingTo}`;
   }
 
   get isCurrentUser() {
-    const { comment: { user: { username } }, currentUser: {username: currUser}} = this.args;
+    const {
+      comment: {
+        user: { username },
+      },
+      currentUser: { username: currUser },
+    } = this.args;
     return username === currUser;
   }
 
@@ -30,7 +37,9 @@ export default class Comment extends Component {
   }
 
   get content() {
-    const { comment: { content } } = this.args;
+    const {
+      comment: { content },
+    } = this.args;
     return content;
   }
 

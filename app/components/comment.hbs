@@ -18,20 +18,20 @@
     <div class="comment-text">{{#if this.isReply}} <span>{{this.replyTo}}</span> {{/if}} {{@comment.content}}</div>
   </div>
   <div class="count">
-    <div><img src="../../images/icon-plus.svg" alt="plus icon"></div>
+    <div><img src="../../assets/images/icon-plus.svg" alt="plus icon"></div>
     <span class="score">{{@comment.score}}</span>
-    <div class="minus-icon"><img src="../../images/icon-minus.svg" alt="minus icon"></div>
+    <div class="minus-icon"><img src="../../assets/images/icon-minus.svg" alt="minus icon"></div>
   </div>
   {{#if this.isCurrentUser}}
       <div class="edit-delete reply" {{on "click" this.edit}}>
-      <div><img src="../../images/icon-delete.svg" alt="delete icon"/></div>
+      <div><img src="../../assets/images/icon-delete.svg" alt="delete icon"/></div>
       <span class="delete-span">Delete</span>
-        <div class="edit"><img src="../../images/icon-edit.svg" alt="edit icon"/></div>
+        <div class="edit"><img src="../../assets/images/icon-edit.svg" alt="edit icon"/></div>
       <span>Edit</span>
   </div>
   {{else}}
     <div class="reply" {{on "click" this.textInput}}>
-      <div><img src="../../images/icon-reply.svg" alt="reply icon"/></div>
+      <div><img src="../../assets/images/icon-reply.svg" alt="reply icon"/></div>
       <span>Reply</span>
   </div>
 
