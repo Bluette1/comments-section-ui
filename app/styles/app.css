@@ -159,8 +159,8 @@ a:hover {
   display: flex;
   padding-bottom: 3%;
   padding: 2% 3% 2% 3%;
-  height: 11.25em;
   margin-top: 3%;
+  height: 15.25em;
   margin-bottom: 5%;
   width: 100%;
 }
@@ -234,7 +234,6 @@ textarea.update {
     margin-bottom: 6%;
     padding-bottom: 30%;
     padding-top: 2%;
-    margin-top: 10%;
   }
   .comment-header,
   .comment-text {
@@ -267,7 +266,8 @@ textarea.update {
   .reply-btn,
   .img {
     position: relative;
-    top: 70%;
+    top: 60%;
+    left: 7%;
   }
   .reply-btn {
     left: 60%;
@@ -283,17 +283,6 @@ textarea.update {
   .edit-delete {
     top: 85%;
   }
-  textarea.update {
-    width: 96vw;
-    margin-bottom: 14%;
-    padding-bottom: 4%;
-  }
-  .update-btn {
-    left: 60vw;
-  }
-  .input-div .img {
-    padding-left: 5.25%;
-  }
 }
 
 @media (max-width: 20em) {
@@ -301,6 +290,6 @@ textarea.update {
     left: 50%;
   }
   .update-btn {
-    left: 50vw;
+    left: 50%;
   }
 }
