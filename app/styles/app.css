@@ -185,12 +185,10 @@ a:hover {
   color: #ffffff;
   background: #5357B6;
   text-transform: uppercase;
-  padding: 8% 16% 8% 16%;
   border-radius: 8%;
 }
 
 textarea.update {
-  width: 80vh;
   font-family: 'Rubik', sans-serif;
   padding: 3%;
   font-size: 1em;
@@ -201,7 +199,8 @@ textarea.update {
   color: #67727E;
 }
 
-.update-btn button {
+.update-btn button,
+.reply-btn button {
   padding: 14% 22% 14% 22%;
 }
 
@@ -267,10 +266,6 @@ textarea.update {
   }
   .reply-btn {
     left: 60%;
-  }
-  .reply-btn button,
-  .update-btn button {
-    padding: 1.5% 3.5% 1.5% 3.5%;
   }
   .container-main {
     padding: 0;
