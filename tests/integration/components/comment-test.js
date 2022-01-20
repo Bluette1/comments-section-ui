@@ -19,8 +19,8 @@ module('Integration | Component | comment', function (hooks) {
         score: 12,
         user: {
           image: {
-            png: '../assets/images/avatars/image-amyrobson.png',
-            webp: '../assets/images/avatars/image-amyrobson.webp',
+            png: '../assets/images/image-amyrobson.png',
+            webp: '../assets/images/image-amyrobson.webp',
           },
           username: 'amyrobson',
         },
