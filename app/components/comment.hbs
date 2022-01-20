@@ -23,11 +23,11 @@
     <div class="minus-icon"><img src="../../assets/images/icon-minus.svg" alt="minus icon"></div>
   </div>
   {{#if this.isCurrentUser}}
-      <div class="edit-delete reply" {{on "click" this.edit}}>
-      <div><img src="../../assets/images/icon-delete.svg" alt="delete icon"/></div>
-      <span class="delete-span">Delete</span>
-        <div class="edit"><img src="../../assets/images/icon-edit.svg" alt="edit icon"/></div>
-      <span>Edit</span>
+      <div class="edit-delete" {{on "click" this.edit}}>
+      <div class="delete-div"><div><img src="../../assets/images/icon-delete.svg" alt="delete icon"/></div>
+      <span class="delete-span">Delete</span></div>
+       <div class="edit-div"> <div class="edit"><img src="../../assets/images/icon-edit.svg" alt="edit icon"/></div>
+      <span>Edit</span></div>
   </div>
   {{else}}
     <div class="reply" {{on "click" this.textInput}}>

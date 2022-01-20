@@ -103,21 +103,27 @@ a:hover {
 }
 
 .edit-delete {
-  width: 7.5em;
-  left: 78%;
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  top: 3%;
+  right: 7%;
+  width: 8em;
+}
+
+.edit-div,
+.delete-div {
+  display: flex;
+}
+
+.delete-div div,
+.edit-div div {
+  padding-right: 0.313em;
 }
 
 .reply span {
   padding-left: 18%;
   font-weight: 500;
-}
-
-.edit-delete .edit {
-  padding-left: 28%;
-}
-
-.edit-delete span {
-  padding-left: 5%;
 }
 
 .delete-span {
@@ -156,6 +162,7 @@ a:hover {
   height: 11.25em;
   margin-top: 3%;
   margin-bottom: 5%;
+  width: 100%;
 }
 
 .input-div textarea {
@@ -200,12 +207,6 @@ textarea.update {
 
 .update-btn button {
   padding: 14% 22% 14% 22%;
-}
-
-@media (max-width: 48em) {
-  textarea.update {
-    width: 62vh;
-  }
 }
 
 @media (max-width: 36em) {
@@ -280,10 +281,7 @@ textarea.update {
     margin: 0;
   }
   .edit-delete {
-    left: 60%;
-  }
-  .edit-delete .edit {
-    padding-left: 20%;
+    top: 85%;
   }
   textarea.update {
     width: 96vw;
@@ -292,9 +290,6 @@ textarea.update {
   }
   .update-btn {
     left: 60vw;
-  }
-  .update-btn button {
-    padding: 6% 8% 6% 8%;
   }
   .input-div .img {
     padding-left: 5.25%;
