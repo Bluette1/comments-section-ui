@@ -10,7 +10,7 @@ module('Integration | Component | input', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Input />`);
+    await render(hbs`<InputBox />`);
 
     assert.dom(this.element).hasText('');
 

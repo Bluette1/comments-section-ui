@@ -1,7 +1,7 @@
   {{#if this.showEditInput}}
     {{!-- show edit input --}}
 
-    <Input @content={{this.content}} @currentUsr={{@currentUser}} @update={{true}}/>
+    <InputBox @content={{this.content}} @currentUsr={{@currentUser}} @update={{true}}/>
 
   {{else}}
     {{!-- show comment --}}
@@ -10,7 +10,7 @@
   <div>
     <div class="comment-header">
       <div class="avatar">
-        <img src={{@comment.user.image.png}} alt="avatar">
+        <img src={{@comment.user.image.webp}} alt="avatar">
       </div>
       <p><strong>{{@comment.user.username}}</strong></p>
       <p>{{@comment.createdAt}}</p>
@@ -40,7 +40,7 @@
   </div>
 
 {{#if this.showTextBox}}
-  <Input @currentUsr={{@currentUser}} @reply={{true}}/>
+  <InputBox @currentUsr={{@currentUser}} @reply={{true}}/>
 {{/if}}
 </div>
 
