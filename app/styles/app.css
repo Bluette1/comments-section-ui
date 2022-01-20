@@ -181,10 +181,6 @@ a:hover {
   color: #67727E;
 }
 
-.reply-btn {
-  flex-grow: 2;
-}
-
 .reply-btn button {
   color: #ffffff;
   background: #5357B6;
