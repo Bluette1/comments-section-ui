@@ -205,20 +205,25 @@ textarea.update {
   padding: 14% 22% 14% 22%;
 }
 
-.delete-comment {
-  background: #F5F6FA;
-  opacity: 0.75;
+body.delete-comment {
+  /* background: #F5F6FA; */
+  background: #656363;
+  /* background: #000000 !important; */
+  /* mix-blend-mode: normal; */
+  /* opacity: 0.5 !important; */
 }
 
 .delete-comment-div {
   background: #FFB8BB;
   padding: 2%;
   border: #5357B6 1px solid;
-  position: absolute;
-  width: 27%;
+  position: fixed;
   height: 15.75em;
-  left: 36.1%;
-  top: 24.125em;
+  width: 40%;
+  left: 30%;
+  right: 30%;
+  top: calc(50% - 19.53%);
+  bottom: calc(50% - 19.53%);
 }
 
 .delete-content {
@@ -306,7 +311,6 @@ textarea.update {
     width: 90%;
     height: 15.75em;
     left: 5%;
-    top: 24.125em;
   }
 }
 
