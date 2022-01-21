@@ -1,10 +1,12 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { service } from '@ember/service';
 
 export default class Comment extends Component {
   @tracked showTextBox = false;
   @tracked showEditInput = false;
+  @service showDeleteComment;
 
   get isReply() {
     const { reply } = this.args;
@@ -43,5 +45,7 @@ export default class Comment extends Component {
     return content;
   }
 
-  delete() {}
+  @action delete() {
+    this.showDeleteComment.showDelete();
+  }
 }

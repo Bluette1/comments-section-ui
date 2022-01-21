@@ -114,6 +114,7 @@ a:hover {
 .edit-div,
 .delete-div {
   display: flex;
+  cursor: pointer;
 }
 
 .delete-div div,
@@ -202,6 +203,18 @@ textarea.update {
 .update-btn button,
 .reply-btn button {
   padding: 14% 22% 14% 22%;
+}
+
+.delete-comment {
+  background: #F5F6FA;
+  opacity: 0.75;
+}
+
+.delete-comment-div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #FFB8BB;
 }
 
 @media (max-width: 36em) {
