@@ -6,6 +6,6 @@ export default class ShowDeleteCommentService extends Service {
  @tracked deleteComment = false;
 
  @action showDelete() {
-    this.deleteComment = !this.deleteComment;
+    this.deleteComment = !this.deleteComment;  
   }
 }
