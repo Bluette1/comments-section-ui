@@ -211,10 +211,25 @@ textarea.update {
 }
 
 .delete-comment-div {
-  position: absolute;
-  left: 50%;
-  top: 50%;
   background: #FFB8BB;
+  padding: 2%;
+  border: #5357B6 1px solid;
+  position: absolute;
+  width: 27%;
+  height: 15.75em;
+  left: 36.1%;
+  top: 24.125em;
+}
+
+.delete-content {
+  height: 72px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #67727E;
+  padding: 2%;
+  margin-bottom: 5%;
 }
 
 @media (max-width: 36em) {
@@ -286,6 +301,12 @@ textarea.update {
   }
   .edit-delete {
     top: 85%;
+  }
+  .delete-comment-div {
+    width: 90%;
+    height: 15.75em;
+    left: 5%;
+    top: 24.125em;
   }
 }
 
