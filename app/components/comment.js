@@ -47,8 +47,7 @@ export default class Comment extends Component {
 
   @action delete() {
     this.showDeleteComment.showDelete();
-    const body = document.getElementsByTagName('body')[0];
-    console.log('BODY: ', body)
+    const body = document.getElementsByClassName('main')[0];
     if (this.showDeleteComment.deleteComment) {
       body.classList.add('delete-comment');
     } else {

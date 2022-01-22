@@ -1,16 +1,20 @@
-<div class="container-main">
-  <div>
-    <ul class="details">
-    {{#each @model.comments as |comment|}}
-      <li><CommentSection @commentReply={{comment}} @currentUser={{@model.currentUser}} /></li>
-    {{/each}}
-  </ul>
+<div class="main">
+    <div class="container-main">
+      <div>
+        <ul class="details">
+          {{#each @model.comments as |comment|}}
+            <li><CommentSection @commentReply={{comment}} @currentUser={{@model.currentUser}} /></li>
+          {{/each}}
+        </ul>
+      </div>
+      <InputBox @currentUsr={{@model.currentUser}} />
+    </div>
   </div>
-  <InputBox @currentUsr={{@model.currentUser}} />
+ 
+
   {{#if this.showDeleteComment.deleteComment}}
-<DeleteComponent />
-{{else}}
-  <p>Value of this.showDeleteComment.deleteComment:::::: {{this.showDeleteComment.deleteComment}}</p>
-{{/if}}
-</div>
+    <DeleteComponent />
+  {{else}}
+    <p>Value of this.showDeleteComment.deleteComment:::::: {{this.showDeleteComment.deleteComment}}</p>
+  {{/if}}
 
