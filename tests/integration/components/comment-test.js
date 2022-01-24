@@ -6,11 +6,16 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | comment', function (hooks) {
   setupRenderingTest(hooks);
 
-  test.skip('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('it renders', async function (assert) {
 
     this.setProperties({
+      currentUser: {
+        "image": {
+          "png": "../assets/images/image-juliusomo.png",
+          "webp": "../assets/images/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      },
       commentReply: {
         id: 1,
         content:
@@ -28,7 +33,7 @@ module('Integration | Component | comment', function (hooks) {
       },
     });
 
-    await render(hbs`<Comment @comment={{commentReply}} />`);
+    await render(hbs`<Comment @comment={{this.commentReply}} @currentUser={{this.currentUser}} />`);
     assert.dom('.comment-div').exists();
   });
 });

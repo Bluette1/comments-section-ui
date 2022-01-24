@@ -1,47 +1,45 @@
-  {{#if this.showEditInput}}
-    {{!-- show edit input --}}
-
-    <InputBox @content={{this.content}} @currentUsr={{@currentUser}} @update={{true}}/>
-
-  {{else}}
-    {{!-- show comment --}}
-    <div>
-  <div class="comment-div {{if this.isReply "reply-div"}}">
+{{#if this.showEditInput}}
+  <InputBox @content={{this.content}} @currentUsr={{@currentUser}} @update={{true}}/>
+{{else}}
   <div>
-    <div class="comment-header">
-      <div class="avatar">
-        <img src={{@comment.user.image.webp}} alt="avatar">
+    <div class="comment-div {{if this.isReply "reply-div"}}">
+      <div>
+        <div class="comment-header">
+          <div class="avatar">
+            <img src={{@comment.user.image.webp}} alt="avatar">
+          </div>
+          <p><strong>{{@comment.user.username}}</strong></p>
+          <p>{{@comment.createdAt}}</p>
+        </div>
+        <div class="comment-text">{{#if this.isReply}} <span>{{this.replyTo}}</span> {{/if}} {{@comment.content}}</div>
       </div>
-      <p><strong>{{@comment.user.username}}</strong></p>
-      <p>{{@comment.createdAt}}</p>
+      <div class="count">
+        <div><img src="../../assets/images/icon-plus.svg" alt="plus icon"></div>
+        <span class="score">{{@comment.score}}</span>
+        <div class="minus-icon"><img src="../../assets/images/icon-minus.svg" alt="minus icon"></div>
+      </div>
+{{#if this.isCurrentUser}}
+    <div class="edit-delete">
+      <button type="button" class="delete-btn" {{on "click" this.delete}}>
+        <span><img src="../../assets/images/icon-delete.svg" alt="delete icon"/></span>
+        <span class="delete-span">Delete</span>
+      </button>
+      <button type="button" class="edit-btn" {{on "click" this.edit}}>
+        <span class="edit"><img src="../../assets/images/icon-edit.svg" alt="edit icon"/></span>
+        <span>Edit</span>
+      </button>
     </div>
-    <div class="comment-text">{{#if this.isReply}} <span>{{this.replyTo}}</span> {{/if}} {{@comment.content}}</div>
-  </div>
-  <div class="count">
-    <div><img src="../../assets/images/icon-plus.svg" alt="plus icon"></div>
-    <span class="score">{{@comment.score}}</span>
-    <div class="minus-icon"><img src="../../assets/images/icon-minus.svg" alt="minus icon"></div>
-  </div>
-  {{#if this.isCurrentUser}}
-      <div class="edit-delete">
-      <button type="button" class="delete-btn" {{on "click" this.delete}}><span><img src="../../assets/images/icon-delete.svg" alt="delete icon"/></span>
-      <span class="delete-span">Delete</span></button>
-       <button type="button" class="edit-btn" {{on "click" this.edit}}> <span class="edit"><img src="../../assets/images/icon-edit.svg" alt="edit icon"/></span>
-      <span>Edit</span></button>
-  </div>
-  {{else}}
-    <button type="button" class="reply" {{on "click" this.textInput}}>
-      <span><img src="../../assets/images/icon-reply.svg" alt="reply icon"/></span>
-      <span>Reply</span>
-    </button>
-
-  {{/if}}
-
-  </div>
+{{else}}
+      <button type="button" class="reply" {{on "click" this.textInput}}>
+        <span><img src="../../assets/images/icon-reply.svg" alt="reply icon"/></span>
+        <span>Reply</span>
+      </button>
+{{/if}}
+    </div>
 
 {{#if this.showTextBox}}
   <InputBox @currentUsr={{@currentUser}} @reply={{true}}/>
 {{/if}}
 </div>
 
-  {{/if}}
+{{/if}}
