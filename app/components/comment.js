@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
+import deleteComment from '../helpers/delete-comment';
 
 export default class Comment extends Component {
   @tracked showTextBox = false;
@@ -47,11 +48,6 @@ export default class Comment extends Component {
 
   @action delete() {
     this.showDeleteComment.showDelete();
-    const body = document.getElementsByClassName('main')[0];
-    if (this.showDeleteComment.deleteComment) {
-      body.classList.add('delete-comment');
-    } else {
-      body.classList.remove('delete-comment');
-    }
+    deleteComment(this.showDeleteComment.deleteComment);
   }
 }
