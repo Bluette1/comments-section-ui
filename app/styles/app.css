@@ -175,20 +175,41 @@ a:hover {
   width: 100%;
 }
 
-.input-div textarea {
-  flex-grow: 12;
-  border: solid 1px #5357B6;
-  margin-left: 2%;
+.input-div label {
+  flex-grow: 11;
+  /* flex-grow: 10; */
+  /* margin-left: 2%;
   margin-right: 2%;
+  padding-left: 2%; */
+  /* padding-top: 5%; */
   padding-left: 2%;
-  padding-top: 5%;
-  font-family: 'Rubik', sans-serif;
+  /* font-size: 1em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5em;
+  letter-spacing: 0px;
+  color: #67727E; */
+  display: flex;
+}
+
+.reply-btn {
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.input-div textarea {
+  /* justify-content: center; */
+  flex: 1;
+  padding: 2%;
   font-size: 1em;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5em;
   letter-spacing: 0px;
   color: #67727E;
+  font-family: 'Rubik', sans-serif;
 }
 
 .reply-btn button {
@@ -196,6 +217,7 @@ a:hover {
   background: #5357B6;
   text-transform: uppercase;
   border-radius: 8%;
+  padding: 7% 11% 7% 11%;
 }
 
 textarea.update {
@@ -211,7 +233,7 @@ textarea.update {
 
 .update-btn button,
 .reply-btn button {
-  padding: 14% 22% 14% 22%;
+  /* padding: 14% 22% 14% 22%; */
 }
 
 .relative-div {
@@ -309,7 +331,7 @@ textarea.update {
     margin: 0;
     padding: 0;
   }
-  .input-div textarea {
+  .input-div label {
     position: absolute;
     top: 9%;
     width: 96%;
@@ -325,6 +347,7 @@ textarea.update {
     left: 7%;
   }
   .reply-btn {
+    flex-grow: unset;
     left: 60%;
   }
   .container-main {

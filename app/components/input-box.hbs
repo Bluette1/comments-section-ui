@@ -2,12 +2,20 @@
   <div class="img">
     <img src={{@currentUsr.image.webp}} alt="avatar">
   </div>
-  
-  {{#if @update}}
-    <textarea value={{@content}} class="update" />
+  {{!-- <div class="label"> --}}
+    {{!-- <div class="label-text">  {{#if @update}} --}}
+       {{#if @update}}
+  <label for="update">
+    <textarea value={{@content}} name="update"/>
+  </label>
   {{else}}
-    <textarea placeholder="Add a comment..." />
+  <label for="comment">
+    <textarea placeholder="Add a comment..." name="comment" />
+  </label>
   {{/if}}
+  {{!-- </div>
+  </div> --}}
+
 
   <div class="reply-btn {{if @update "update-btn"}}">
     <button type="button">
