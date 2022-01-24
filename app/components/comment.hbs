@@ -24,16 +24,16 @@
   </div>
   {{#if this.isCurrentUser}}
       <div class="edit-delete">
-      <div class="delete-div" {{on "click" this.delete}}><div><img src="../../assets/images/icon-delete.svg" alt="delete icon"/></div>
-      <span class="delete-span">Delete</span></div>
-       <div class="edit-div" {{on "click" this.edit}}> <div class="edit"><img src="../../assets/images/icon-edit.svg" alt="edit icon"/></div>
-      <span>Edit</span></div>
+      <button type="button" class="delete-btn" {{on "click" this.delete}}><span><img src="../../assets/images/icon-delete.svg" alt="delete icon"/></span>
+      <span class="delete-span">Delete</span></button>
+       <button type="button" class="edit-btn" {{on "click" this.edit}}> <span class="edit"><img src="../../assets/images/icon-edit.svg" alt="edit icon"/></span>
+      <span>Edit</span></button>
   </div>
   {{else}}
-    <div class="reply" {{on "click" this.textInput}}>
-      <div><img src="../../assets/images/icon-reply.svg" alt="reply icon"/></div>
+    <button type="button" class="reply" {{on "click" this.textInput}}>
+      <span><img src="../../assets/images/icon-reply.svg" alt="reply icon"/></span>
       <span>Reply</span>
-  </div>
+    </button>
 
   {{/if}}
 

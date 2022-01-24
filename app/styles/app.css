@@ -104,11 +104,12 @@ a:hover {
 }
 
 .reply {
-  width: 3.75em;
+  width: 6.75em;
   color: #5357B6;
   left: 87%;
   cursor: pointer;
   display: flex;
+  background: inherit;
 }
 
 .edit-delete {
@@ -120,14 +121,15 @@ a:hover {
   width: 8em;
 }
 
-.edit-div,
-.delete-div {
+.edit-btn,
+.delete-btn {
   display: flex;
   cursor: pointer;
+  background: inherit;
 }
 
-.delete-div div,
-.edit-div div {
+.delete-btn span,
+.edit-btn span {
   padding-right: 0.313em;
 }
 
@@ -177,18 +179,7 @@ a:hover {
 
 .input-div label {
   flex-grow: 11;
-  /* flex-grow: 10; */
-  /* margin-left: 2%;
-  margin-right: 2%;
-  padding-left: 2%; */
-  /* padding-top: 5%; */
   padding-left: 2%;
-  /* font-size: 1em;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.5em;
-  letter-spacing: 0px;
-  color: #67727E; */
   display: flex;
 }
 
@@ -200,7 +191,6 @@ a:hover {
 }
 
 .input-div textarea {
-  /* justify-content: center; */
   flex: 1;
   padding: 2%;
   font-size: 1em;
@@ -229,11 +219,6 @@ textarea.update {
   line-height: 1.5em;
   letter-spacing: 0px;
   color: #67727E;
-}
-
-.update-btn button,
-.reply-btn button {
-  /* padding: 14% 22% 14% 22%; */
 }
 
 .relative-div {
@@ -370,5 +355,8 @@ textarea.update {
   }
   .update-btn {
     left: 50%;
+  }
+  .reply span {
+    padding-left: 13%;
   }
 }
