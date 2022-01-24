@@ -7,14 +7,13 @@ module('Integration | Component | comment', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-
     this.setProperties({
       currentUser: {
-        "image": {
-          "png": "../assets/images/image-juliusomo.png",
-          "webp": "../assets/images/image-juliusomo.webp"
+        image: {
+          png: '../assets/images/image-juliusomo.png',
+          webp: '../assets/images/image-juliusomo.webp',
         },
-        "username": "juliusomo"
+        username: 'juliusomo',
       },
       commentReply: {
         id: 1,
@@ -33,7 +32,9 @@ module('Integration | Component | comment', function (hooks) {
       },
     });
 
-    await render(hbs`<Comment @comment={{this.commentReply}} @currentUser={{this.currentUser}} />`);
+    await render(
+      hbs`<Comment @comment={{this.commentReply}} @currentUser={{this.currentUser}} />`
+    );
     assert.dom('.comment-div').exists();
   });
 });
