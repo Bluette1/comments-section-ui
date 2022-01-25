@@ -110,6 +110,8 @@ module('Integration | Component | comment-section', function (hooks) {
       hbs`<CommentSection @commentReply={{this.commentReply}} @currentUser={{this.currentUser}}/>`
     );
     assert.dom('.edit-delete').exists();
+    assert.dom('div.count').exists();
+    assert.dom('button.reply').exists();
     assert.dom('button.edit-btn').includesText('Edit');
     assert.dom('button.delete-btn').includesText('Delete');
   });
