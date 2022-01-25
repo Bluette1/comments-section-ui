@@ -85,18 +85,19 @@ module('Integration | Component | container-main', function (hooks) {
   });
 
   test('it renders', async function (assert) {
-
     await render(hbs`<ContainerMain @model={{this.model}} />`);
     assert.dom('.main').exists();
     assert.dom('.container-main').exists();
-
   });
 
   test('it renders delete component when the deleteComent variable is set to true ', async function (assert) {
     class MockshowDeleteCommentService extends Service {
       deleteComment = true;
     }
-    this.owner.register('service:show-delete-comment', MockshowDeleteCommentService);
+    this.owner.register(
+      'service:show-delete-comment',
+      MockshowDeleteCommentService
+    );
 
     await render(hbs`<ContainerMain @model={{this.model}} />`);
     assert.dom('.main').exists();
@@ -104,11 +105,14 @@ module('Integration | Component | container-main', function (hooks) {
     assert.dom('.delete-comment-div').exists();
   });
 
-  test('it doesn\'t render delete component when the deleteComent variable is set to false ', async function (assert) {
+  test("it doesn't render delete component when the deleteComent variable is set to false ", async function (assert) {
     class MockshowDeleteCommentService extends Service {
       deleteComment = false;
     }
-    this.owner.register('service:show-delete-comment', MockshowDeleteCommentService);
+    this.owner.register(
+      'service:show-delete-comment',
+      MockshowDeleteCommentService
+    );
 
     await render(hbs`<ContainerMain @model={{this.model}} />`);
     assert.dom('.main').exists();
