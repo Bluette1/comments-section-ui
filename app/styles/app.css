@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  border: 0 none;
+  list-style: none outside none;
+  margin: 0;
+  outline: 0 none;
+  padding: 0;
+}
+
+body {
+  padding: 0;
+  background: #F2F2F2;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5em;
+  letter-spacing: 0px;
+  color: #67727E;
+}
+
+.delete-comment {
+  background: rgb(0, 0, 0);
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #F2F2F2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.comment-header {
+  display: flex;
+  margin-top: 2%;
+  padding-top: 2%;
+  margin-left: 10%;
+}
+
+.comment-text {
+  margin-left: 10%;
+}
+
+.comment-text span {
+  color: #5357B6;
+  font-weight: 500;
+}
+
+.comment-header p {
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 3%;
+}
+
+.comment-div {
+  position: relative;
+  background: rgb(255, 255, 255);
+  padding-bottom: 3%;
+}
+
+.count,
+.reply {
+  position: absolute;
+  top: 0.625em;
+}
+
+.count {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 0.625em;
+  height: 7em;
+  padding: 2%;
+  left: 3%;
+  background: #F5F6FA;
+  color: #C5C6EF;
+}
+
+.score {
+  color: #5357B6
+}
+
+.reply {
+  width: 6.75em;
+  color: #5357B6;
+  left: 87%;
+  cursor: pointer;
+  display: flex;
+  background: inherit;
+}
+
+.edit-delete {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  top: 3%;
+  right: 7%;
+  width: 8em;
+}
+
+.edit-btn,
+.delete-btn {
+  display: flex;
+  cursor: pointer;
+  background: inherit;
+}
+
+.delete-btn span,
+.edit-btn span {
+  padding-right: 0.313em;
+}
+
+.reply span {
+  padding-left: 18%;
+  font-weight: 500;
+}
+
+.delete-span {
+  color: #FFB8BB;
+}
+
+.container-main {
+  max-width: 90em;
+}
+
+.reply-div {
+  margin-top: 2%;
+}
+
+.reply-div .comment-header {
+  margin-top: -1%;
+}
+
+.reply-line {
+  width: 0.125em;
+  height: 10.938em;
+  background: #E9EBF0;
+  margin-right: 5%;
+  margin-top: 2%;
+}
+
+.reply-container {
+  display: flex;
+  margin-left: 5%;
+}
+
+.input-div {
+  display: flex;
+  padding-bottom: 3%;
+  padding: 2% 3% 2% 3%;
+  margin-top: 3%;
+  height: 15.25em;
+  margin-bottom: 5%;
+  width: 100%;
+}
+
+.input-div label {
+  flex-grow: 11;
+  padding-left: 2%;
+  display: flex;
+}
+
+.reply-btn {
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.input-div textarea {
+  flex: 1;
+  padding: 2%;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5em;
+  letter-spacing: 0px;
+  color: #67727E;
+  font-family: 'Rubik', sans-serif;
+}
+
+.reply-btn button {
+  color: #ffffff;
+  background: #5357B6;
+  text-transform: uppercase;
+  border-radius: 8%;
+  padding: 7% 11% 7% 11%;
+}
+
+textarea.update {
+  font-family: 'Rubik', sans-serif;
+  padding: 3%;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5em;
+  letter-spacing: 0px;
+  color: #67727E;
+}
+
+.relative-div {
+  position: relative;
+}
+
+.delete-comment-div {
+  background: rgb(255, 255, 255);
+  border: #5357B6 1px solid;
+  position: fixed;
+  height: 15.75em;
+  width: 40%;
+  left: 30%;
+  right: 30%;
+  top: calc(50% - 19.53%);
+  bottom: calc(50% - 19.53%);
+  padding: 3%;
+}
+
+.delete-content {
+  height: 72px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #67727E;
+  padding: 2% 0% 2% 0%;
+  margin: 4% 0% 4% 0%;
+}
+
+.delete-comment-div button {
+  width: 30%;
+  padding: 3%;
+  border-radius: 5%;
+  color: #ffffff;
+}
+
+.delete-comment-div button.cancel {
+  background: #67727E;
+  margin-right: 2%;
+}
+
+.delete-comment-div button.delete {
+  background: #ED6368;
+}
+
+@media (max-width: 64em) {
+  .delete-comment-div button {
+    width: 40%;
+  }
+}
+
+@media (max-width: 36em) {
+  .count,
+  .reply {
+    position: absolute;
+    top: 80%;
+  }
+  .count {
+    flex-direction: row;
+    margin-top: 2%;
+    height: 2.5em;
+    width: 25%;
+    border-radius: 5%;
+    margin-left: 7%;
+  }
+  .minus-icon {
+    margin-top: -0.188em;
+  }
+  .reply {
+    left: 75%;
+    top: 85%;
+  }
+  .comment-div {
+    margin-bottom: 6%;
+    padding-bottom: 30%;
+    padding-top: 2%;
+  }
+  .comment-header,
+  .comment-text {
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+  .comment-header {
+    margin-top: 0%;
+  }
+  .reply-container {
+    margin-left: 0%;
+  }
+  .reply-line {
+    margin-right: 2%;
+  }
+  .input-div {
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+  .input-div label {
+    position: absolute;
+    top: 9%;
+    width: 96%;
+    height: 6.25em;
+    padding-right: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  .reply-btn,
+  .img {
+    position: relative;
+    top: 60%;
+    left: 7%;
+  }
+  .reply-btn {
+    flex-grow: unset;
+    left: 60%;
+  }
+  .container-main {
+    padding: 0;
+    margin: 0;
+  }
+  .edit-delete {
+    top: 85%;
+  }
+  .delete-comment-div {
+    width: 90%;
+    height: 15.75em;
+    left: 5%;
+  }
+}
+
+@media (max-width: 20em) {
+  .reply-btn {
+    left: 50%;
+  }
+  .update-btn {
+    left: 50%;
+  }
+  .reply span {
+    padding-left: 13%;
+  }
+}

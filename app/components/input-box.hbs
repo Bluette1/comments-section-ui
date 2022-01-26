@@ -1,0 +1,26 @@
+<div class="input-div">
+  <div class="img">
+    <img src={{@currentUsr.image.webp}} alt="avatar">
+  </div>
+  {{#if @update}}
+    <label for="update">
+      <textarea value={{@content}} name="update"/>
+    </label>
+  {{else}}
+    <label for="comment">
+      <textarea placeholder="Add a comment..." name="comment" />
+    </label>
+  {{/if}}
+
+  <div class="reply-btn {{if @update "update-btn"}}">
+    <button type="button">
+      {{#if @reply}}
+        Reply
+      {{else if @update}}
+        Update
+      {{else}}
+        Send
+      {{/if}}
+    </button>
+  </div>
+</div>
