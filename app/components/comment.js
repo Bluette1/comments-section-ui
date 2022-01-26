@@ -27,7 +27,7 @@ export default class Comment extends Component {
   get isCurrentUser() {
     const {
       comment: {
-        user: { username },
+        username 
       },
       currentUser: { username: currUser },
     } = this.args;

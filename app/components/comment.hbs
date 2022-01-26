@@ -6,9 +6,9 @@
       <div>
         <div class="comment-header">
           <div class="avatar">
-            <img src={{@comment.user.image.webp}} alt="avatar">
+            <img src={{@comment.webp}} alt="avatar">
           </div>
-          <p><strong>{{@comment.user.username}}</strong></p>
+          <p><strong>{{@comment.username}}</strong></p>
           <p>{{@comment.createdAt}}</p>
         </div>
         <div class="comment-text">{{#if this.isReply}} <span>{{this.replyTo}}</span> {{/if}} {{@comment.content}}</div>
