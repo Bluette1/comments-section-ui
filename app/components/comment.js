@@ -13,7 +13,6 @@ export default class Comment extends Component {
     return reply;
   }
 
-
   @action textInput() {
     this.showTextBox = !this.showTextBox;
   }
