@@ -1,0 +1,21 @@
+{
+  "data": {
+    "type": "users",
+    "id": "4",
+    "attributes": {
+      "image": {
+        "png": "../../assets/images/image-ramsesmiron.png",
+        "webp": "../../assets/images/image-ramsesmiron.webp"
+      },
+      "username": "ramsesmiron"
+    }
+  },
+  "relationships": {
+    "comments": {
+      "data": [{
+        "type": "comments",
+        "id": "3"
+      }]
+    }
+  }
+}

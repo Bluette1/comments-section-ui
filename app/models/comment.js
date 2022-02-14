@@ -1,10 +1,10 @@
-import Model, { attr, hasMany, inverse, belongsTo } from '@ember-data/model';
+import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 
 export default class CommentModel extends Model {
-  @hasMany ('comment', { async: true, inverse: null }) replies;
+  @hasMany('comment', { inverse: null }) replies;
+  @belongsTo('user') user;
   @attr content;
   @attr createdAt;
   @attr score;
-  @attr webp;
-  @attr username;
+  @attr replyingTo;
 }

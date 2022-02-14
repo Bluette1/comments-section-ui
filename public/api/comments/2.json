@@ -1,0 +1,28 @@
+{
+  "type": "comments",
+  "id": "2",
+  "attributes": {
+    "content": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+    "created-at": "2 weeks ago",
+    "score": 5
+  },
+  "relationships": {
+    "user": {
+      "data": {
+        "id": "3",
+        "type": "users"
+      }
+    },
+    "replies": {
+      "data": [{
+          "type": "comments",
+          "id": "3"
+        },
+        {
+          "type": "comments",
+          "id": "4"
+        }
+      ]
+    }
+  }
+}

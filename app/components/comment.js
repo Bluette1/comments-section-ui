@@ -13,6 +13,7 @@ export default class Comment extends Component {
     return reply;
   }
 
+
   @action textInput() {
     this.showTextBox = !this.showTextBox;
   }
@@ -26,12 +27,12 @@ export default class Comment extends Component {
 
   get isCurrentUser() {
     const {
-      comment: {
-        username 
-      },
-      currentUser: { username: currUser },
+      comment,
+      currentUser,
     } = this.args;
-    return username === currUser;
+    const user = comment.user.get('username');
+    const currUser = currentUser.get('username');
+    return user === currUser;
   }
 
   @action edit() {

@@ -1,0 +1,21 @@
+{
+  "data": {
+    "type": "users",
+    "id": "3",
+    "attributes": {
+      "image": {
+        "png": "../../assets/images/image-maxblagun.png",
+        "webp": "../../assets/images/image-maxblagun.webp"
+      },
+      "username": "maxblagun"
+    },
+    "relationships": {
+      "comments": {
+        "data": [{
+          "type": "comments",
+          "id": "2"
+        }]
+      }
+    }
+  }
+}
