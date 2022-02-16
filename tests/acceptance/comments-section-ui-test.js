@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { visit, currentURL, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import { run } from '@ember/runloop';
+import { run, later } from '@ember/runloop';
 
 module('Acceptance | comments section ui', function (hooks) {
   setupApplicationTest(hooks);
@@ -20,7 +20,7 @@ module('Acceptance | comments section ui', function (hooks) {
       visit('/').then(() => {
         assert.strictEqual(currentURL(), '/');
         assert.dom('.main').exists();
-        setTimeout(() => {
+        later(() => {
           assert.dom('button.reply').exists();
           click('button.reply').then(() => {
             assert.dom('.reply-btn').exists();
@@ -38,7 +38,7 @@ module('Acceptance | comments section ui', function (hooks) {
       visit('/').then(() => {
         assert.strictEqual(currentURL(), '/');
         assert.dom('.main').exists();
-        setTimeout(() => {
+        later(() => {
           assert.dom('button.edit-btn').exists();
           click('button.edit-btn').then(() => {
             assert.dom('.update-btn').exists();
