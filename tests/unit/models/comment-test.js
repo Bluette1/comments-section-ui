@@ -1,6 +1,5 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-// import { get } from '@ember/object';
 
 module('Unit | Model | comment', function (hooks) {
   setupTest(hooks);

@@ -10,16 +10,14 @@ module('Integration | Component | input-box', function (hooks) {
       content:
         "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
       currentUser: {
-        image: {
-          png: '../assets/images/image-juliusomo.png',
-          webp: '../assets/images/image-juliusomo.webp',
-        },
+        png: '../assets/images/image-juliusomo.png',
+        webp: '../assets/images/image-juliusomo.webp',
         username: 'juliusomo',
       },
     });
   });
 
-  test.skip('it renders `update` input textbox ', async function (assert) {
+  test('it renders `update` input textbox ', async function (assert) {
     await render(
       hbs`<InputBox @content={{this.content}} @currentUsr={this.currentUser}} @update={{true}} />`
     );
@@ -31,7 +29,7 @@ module('Integration | Component | input-box', function (hooks) {
     assert.dom('label textarea').hasAttribute('name', 'update');
   });
 
-  test.skip('it renders `reply` input textbox ', async function (assert) {
+  test('it renders `reply` input textbox ', async function (assert) {
     await render(
       hbs`<InputBox @currentUsr={this.currentUser}} @reply={{true}} />`
     );
@@ -45,7 +43,7 @@ module('Integration | Component | input-box', function (hooks) {
     assert.dom('label textarea').hasAttribute('name', 'comment');
   });
 
-  test.skip('it renders `send` input textbox ', async function (assert) {
+  test('it renders `send` input textbox ', async function (assert) {
     await render(hbs`<InputBox @currentUsr={this.currentUser}} />`);
     assert.dom('.input-div').exists();
     assert.dom('.reply-btn').exists();

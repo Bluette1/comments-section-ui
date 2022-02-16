@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | delete-component', function (hooks) {
   setupRenderingTest(hooks);
 
-  test.skip('it renders', async function (assert) {
+  test('it renders', async function (assert) {
     await render(hbs`<DeleteComponent />`);
 
     assert
