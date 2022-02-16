@@ -16,7 +16,11 @@ module('Unit | Model | user', function (hooks) {
 
     const relationship = User.relationshipsByName.get('comments');
 
-    assert.strictEqual(relationship.key, 'comments', 'has relationship with comments');
+    assert.strictEqual(
+      relationship.key,
+      'comments',
+      'has relationship with comments'
+    );
     assert.strictEqual(
       relationship.kind,
       'hasMany',
