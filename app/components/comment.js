@@ -5,8 +5,8 @@ import { service } from '@ember/service';
 
 export default class Comment extends Component {
   @tracked showTextBox = false;
-  @tracked showEditInput = false;
   @service showDeleteComment;
+  @service showEditInput;
 
   get isReply() {
     const { reply } = this.args;
@@ -32,7 +32,7 @@ export default class Comment extends Component {
   }
 
   @action edit() {
-    this.showEditInput = !this.showEditInput;
+    this.showEditInput.showEdit(this.commentId);
   }
 
   get content() {
@@ -40,6 +40,18 @@ export default class Comment extends Component {
       comment: { content },
     } = this.args;
     return content;
+  }
+
+  get commentId() {
+    const {
+      comment: { id },
+    } = this.args;
+    return id;
+  }
+
+  get beingEdited() {
+    // console.log('isBeingEdited$$$$$$$$$$$$$', this.showEditInput.commentIds.includes(this.commentId))
+    return (this.showEditInput.commentIds.includes(this.commentId));
   }
 
   @action delete() {
