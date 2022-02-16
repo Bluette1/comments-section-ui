@@ -49,25 +49,42 @@ module('Acceptance | comments section ui', function (hooks) {
     });
   });
 
-  test.skip('clicking delete button', async function (assert) {
-    await visit('/');
-
-    assert.strictEqual(currentURL(), '/');
-    assert.dom('.main').exists();
-    assert.dom('button.delete-btn').exists();
-    await click('button.delete-btn');
-    assert.dom('.delete-comment-div').exists();
+  test('clicking delete button', function (assert) {
+    assert.expect(4);
+    const done = assert.async();
+    run(() => {
+      visit('/').then(() => {
+        assert.strictEqual(currentURL(), '/');
+        assert.dom('.main').exists();
+        later(() => {
+          assert.dom('button.delete-btn').exists();
+          click('button.delete-btn').then(() => {
+            assert.dom('.delete-comment-div').exists();
+            done();
+          });
+        }, 0);
+      });
+    });
   });
 
-  test.skip('clicking cancel button on delete button', async function (assert) {
-    await visit('/');
-
-    assert.strictEqual(currentURL(), '/');
-    assert.dom('.main').exists();
-    assert.dom('button.delete-btn').exists();
-    await click('button.delete-btn');
-    assert.dom('.delete-comment-div').exists();
-    await click('button.cancel');
-    assert.dom('.delete-comment-div').doesNotExist();
+  test('clicking cancel button on delete button', async function (assert) {
+    assert.expect(5);
+    const done = assert.async();
+    run(() => {
+      visit('/').then(() => {
+        assert.strictEqual(currentURL(), '/');
+        assert.dom('.main').exists();
+        later(() => {
+          assert.dom('button.delete-btn').exists();
+          click('button.delete-btn').then(() => {
+            assert.dom('.delete-comment-div').exists();
+            click('button.cancel').then(() => {
+              assert.dom('.delete-comment-div').doesNotExist();
+              done();
+            });
+          });
+        }, 0);
+      });
+    });
   });
 });
