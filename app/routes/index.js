@@ -7,7 +7,6 @@ export default class IndexRoute extends Route {
     let user = this.store.findRecord('user', '1');
 
     let comments = this.store.findAll('comment');
-    console.log('COMMENTS: ', comments);
     return { currentUser: user, comments };
   }
 }
