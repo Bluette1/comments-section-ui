@@ -1,0 +1,20 @@
+{
+  "data": {
+    "type": "comments",
+    "id": "4",
+    "attributes": {
+      "content": "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
+      "created-at": "2 days ago",
+      "score": 2,
+      "replying-to": "ramsesmiron"
+    },
+    "relationships": {
+      "user": {
+        "data": {
+          "id": "1",
+          "type": "users"
+        }
+      }
+    }
+  }
+}

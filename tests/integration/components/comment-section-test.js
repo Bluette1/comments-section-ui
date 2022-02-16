@@ -1,5 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
+import ObjectProxy from '@ember/object/proxy';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
@@ -8,26 +9,22 @@ module('Integration | Component | comment-section', function (hooks) {
 
   test('it renders', async function (assert) {
     this.setProperties({
-      currentUser: {
-        image: {
-          png: '../assets/images/image-juliusomo.png',
-          webp: '../assets/images/image-juliusomo.webp',
-        },
+      currentUser: ObjectProxy.create({
+        png: '../assets/images/image-juliusomo.png',
+        webp: '../assets/images/image-juliusomo.webp',
         username: 'juliusomo',
-      },
+      }),
       commentReply: {
         id: 1,
         content:
           "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
         createdAt: '1 month ago',
         score: 12,
-        user: {
-          image: {
-            png: '../assets/images/image-amyrobson.png',
-            webp: '../assets/images/image-amyrobson.webp',
-          },
+        user: ObjectProxy.create({
+          png: '../assets/images/image-amyrobson.png',
+          webp: '../assets/images/image-amyrobson.webp',
           username: 'amyrobson',
-        },
+        }),
         replies: [],
       },
     });
@@ -51,26 +48,23 @@ module('Integration | Component | comment-section', function (hooks) {
 
   test('it renders comment with `edit` and `delete` buttons , when the author is current user', async function (assert) {
     this.setProperties({
-      currentUser: {
-        image: {
-          png: '../assets/images/image-juliusomo.png',
-          webp: '../assets/images/image-juliusomo.webp',
-        },
+      currentUser: ObjectProxy.create({
+        png: '../assets/images/image-juliusomo.png',
+        webp: '../assets/images/image-juliusomo.webp',
+
         username: 'juliusomo',
-      },
+      }),
       commentReply: {
         id: 2,
         content:
           "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
         createdAt: '2 weeks ago',
         score: 5,
-        user: {
-          image: {
-            png: '../assets/images/image-maxblagun.png',
-            webp: '../assets/images/image-maxblagun.webp',
-          },
+        user: ObjectProxy.create({
+          png: '../assets/images/image-maxblagun.png',
+          webp: '../assets/images/image-maxblagun.webp',
           username: 'maxblagun',
-        },
+        }),
         replies: [
           {
             id: 3,
@@ -79,13 +73,11 @@ module('Integration | Component | comment-section', function (hooks) {
             createdAt: '1 week ago',
             score: 4,
             replyingTo: 'maxblagun',
-            user: {
-              image: {
-                png: '../assets/images/image-ramsesmiron.png',
-                webp: '../assets/images/image-ramsesmiron.webp',
-              },
+            user: ObjectProxy.create({
+              png: '../assets/images/image-ramsesmiron.png',
+              webp: '../assets/images/image-ramsesmiron.webp',
               username: 'ramsesmiron',
-            },
+            }),
           },
           {
             id: 4,
@@ -94,13 +86,11 @@ module('Integration | Component | comment-section', function (hooks) {
             createdAt: '2 days ago',
             score: 2,
             replyingTo: 'ramsesmiron',
-            user: {
-              image: {
-                png: '../assets/images/image-juliusomo.png',
-                webp: '../assets/images/image-juliusomo.webp',
-              },
+            user: ObjectProxy.create({
+              png: '../assets/images/image-juliusomo.png',
+              webp: '../assets/images/image-juliusomo.webp',
               username: 'juliusomo',
-            },
+            }),
           },
         ],
       },

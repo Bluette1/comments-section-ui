@@ -1,0 +1,21 @@
+{
+  "data": {
+    "type": "users",
+    "id": "1",
+    "attributes": {
+      "image": {
+        "png": "../../assets/images/image-juliusomo.png",
+        "webp": "../../assets/images/image-juliusomo.webp"
+      },
+      "username": "juliusomo"
+    },
+    "relationships": {
+      "comments": {
+        "data": [{
+          "type": "comments",
+          "id": "4"
+        }]
+      }
+    }
+  }
+}

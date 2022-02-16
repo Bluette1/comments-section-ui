@@ -10,10 +10,8 @@ module('Integration | Component | input-box', function (hooks) {
       content:
         "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
       currentUser: {
-        image: {
-          png: '../assets/images/image-juliusomo.png',
-          webp: '../assets/images/image-juliusomo.webp',
-        },
+        png: '../assets/images/image-juliusomo.png',
+        webp: '../assets/images/image-juliusomo.webp',
         username: 'juliusomo',
       },
     });

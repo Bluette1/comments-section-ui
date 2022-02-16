@@ -1,0 +1,21 @@
+{
+  "data": {
+    "type": "users",
+    "id": "2",
+    "attributes": {
+      "image": {
+        "png": "../../assets/images/image-amyrobson.png",
+        "webp": "../../assets/images/image-amyrobson.webp"
+      },
+      "username": "amyrobson"
+    },
+    "relationships": {
+      "comments": {
+        "data": [{
+          "type": "comments",
+          "id": "1"
+        }]
+      }
+    }
+  }
+}

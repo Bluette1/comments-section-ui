@@ -3,7 +3,10 @@
       <div>
         <ul class="details">
           {{#each @model.comments as |comment|}}
-            <li><CommentSection @commentReply={{comment}} @currentUser={{@model.currentUser}} /></li>
+            {{#if  comment.replyingTo}}
+            {{else}}
+              <li><CommentSection @commentReply={{comment}} @currentUser={{@model.currentUser}} /></li>
+            {{/if}}
           {{/each}}
         </ul>
       </div>

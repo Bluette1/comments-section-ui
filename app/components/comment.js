@@ -25,13 +25,10 @@ export default class Comment extends Component {
   }
 
   get isCurrentUser() {
-    const {
-      comment: {
-        user: { username },
-      },
-      currentUser: { username: currUser },
-    } = this.args;
-    return username === currUser;
+    const { comment, currentUser } = this.args;
+    const user = comment.user.get('username');
+    const currUser = currentUser.get('username');
+    return user === currUser;
   }
 
   @action edit() {
