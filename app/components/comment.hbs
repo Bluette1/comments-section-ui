@@ -1,6 +1,6 @@
 {{#if this.beingEdited }}
   <InputBox @commentId={{this.commentId}} @content={{this.content}} @currentUsr={{@currentUser}} @update={{true}}/>
-{{else}}
+{{else if this.isNotDeleted}}
   <div>
     <div class="comment-div {{if this.isReply "reply-div"}}">
       <div>

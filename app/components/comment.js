@@ -7,6 +7,7 @@ export default class Comment extends Component {
   @tracked showTextBox = false;
   @service showDeleteComment;
   @service showEditInput;
+  @service comments;
 
   get isReply() {
     const { reply } = this.args;
@@ -29,6 +30,16 @@ export default class Comment extends Component {
     const user = comment.user.get('username');
     const currUser = currentUser.get('username');
     return user === currUser;
+  }
+
+  get isNotDeleted() {
+    let isNotRemoved = false;
+    this.comments.items.forEach(item => {
+      if (item.id === this.commentId) {
+        isNotRemoved = true;
+      }  
+    });
+    return isNotRemoved;
   }
 
   @action edit() {
@@ -54,7 +65,9 @@ export default class Comment extends Component {
   }
 
   @action delete() {
+    this.showDeleteComment.registerId(this.commentId);
     this.showDeleteComment.showDelete();
+    
     const body = document.getElementsByClassName('main')[0];
     if (this.showDeleteComment.deleteComment) {
       body.classList.add('delete-comment');

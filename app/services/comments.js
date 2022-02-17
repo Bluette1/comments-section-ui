@@ -9,4 +9,9 @@ export default class CommentsService extends Service {
   @action initData(data) {
     this.items = data;
   }
+
+  @action remove(commentId) {
+    this.items = this.items.filter((comment) => commentId !== comment.id);
+    console.log('here!!!', this.items)
+  }
 }
