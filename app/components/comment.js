@@ -50,8 +50,7 @@ export default class Comment extends Component {
   }
 
   get beingEdited() {
-    // console.log('isBeingEdited$$$$$$$$$$$$$', this.showEditInput.commentIds.includes(this.commentId))
-    return (this.showEditInput.commentIds.includes(this.commentId));
+    return this.showEditInput.commentIds.includes(this.commentId);
   }
 
   @action delete() {

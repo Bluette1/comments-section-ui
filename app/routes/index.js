@@ -1,12 +1,15 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+import { inject, service } from '@ember/service';
 
 export default class IndexRoute extends Route {
-  @service store;
+  @inject store;
+  @service comments;
   async model() {
     let user = this.store.findRecord('user', '1');
 
-    let comments = this.store.findAll('comment');
-    return { currentUser: user, comments };
+    let commentItems = this.store.findAll('comment');
+    this.comments.initData(commentItems);
+
+    return { currentUser: user };
   }
 }

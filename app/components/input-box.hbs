@@ -4,11 +4,11 @@
   </div>
   {{#if @update}}
     <label for="update">
-      <Textarea class="textarea" @value={{this.content}} name="update"/>
+      <Textarea @value={{this.content}} name="update"/>
     </label>
   {{else}}
     <label for="comment">
-      <Textarea class="textarea" placeholder="Add a comment..." name="comment" />
+      <Textarea placeholder="Add a comment..." name="comment" />
     </label>
   {{/if}}
 

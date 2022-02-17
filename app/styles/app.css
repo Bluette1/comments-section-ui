@@ -190,7 +190,7 @@ a:hover {
   align-items: start;
 }
 
-.input-div .textarea {
+.input-div textarea {
   flex: 1;
   padding: 2%;
   font-size: 1em;
@@ -210,7 +210,7 @@ a:hover {
   padding: 7% 11% 7% 11%;
 }
 
-.textarea.update {
+textarea.update {
   font-family: 'Rubik', sans-serif;
   padding: 3%;
   font-size: 1em;

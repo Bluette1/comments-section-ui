@@ -10,7 +10,6 @@ export default class ShowEditInputService extends Service {
     if (this.commentIds.includes(commentId)) {
       this.commentIds.removeObject(commentId);
     } else {
-
       this.commentIds.pushObject(commentId);
     }
   }

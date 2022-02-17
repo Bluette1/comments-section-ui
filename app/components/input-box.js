@@ -7,15 +7,16 @@ export default class InputBoxComponent extends Component {
   @service showEditInput;
   @inject store;
   @tracked content = this.args.content;
+  @service comments;
 
   @action update() {
-    const {commentId} = this.args;
+    const { commentId } = this.args;
     this.showEditInput.showEdit(commentId);
-    
-    this.store.findRecord('comment', commentId).then((comment)=>{
-      comment.set('content', this.content);
-      comment.save();
-    });
 
+    this.comments.items.forEach((comment) => {
+      if (comment.id == commentId) {
+        comment.content = this.content;
+      }
+    });
   }
 }
