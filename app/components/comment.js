@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
 
 export default class Comment extends Component {
-  @tracked showTextBox = false;
+  @service showTextBox;
+  @service showReply;
   @service showDeleteComment;
   @service showEditInput;
   @service comments;
@@ -14,8 +14,14 @@ export default class Comment extends Component {
     return reply;
   }
 
+  get lastReply() {
+    // if (this.comments.lastReply) {
+    return this.comments.lastReply;
+    // }
+  }
+
   @action textInput() {
-    this.showTextBox = !this.showTextBox;
+    this.showTextBox.showInput(this.commentId);
   }
 
   get replyTo() {
@@ -25,21 +31,17 @@ export default class Comment extends Component {
     return `@${replyingTo}`;
   }
 
-  get isCurrentUser() {
-    const { comment, currentUser } = this.args;
-    const user = comment.user.get('username');
-    const currUser = currentUser.get('username');
-    return user === currUser;
+  get replyingTo() {
+    const { comment } = this.args;
+    const username = comment.user.username;
+    return `@${username}`;
   }
 
-  get isNotDeleted() {
-    let isNotRemoved = false;
-    this.comments.items.forEach(item => {
-      if (item.id === this.commentId) {
-        isNotRemoved = true;
-      }  
-    });
-    return isNotRemoved;
+  get isCurrentUser() {
+    const { comment, currentUser } = this.args;
+    const user = comment.user.username;
+    const currUser = currentUser.get('username');
+    return user === currUser;
   }
 
   @action edit() {
@@ -57,6 +59,7 @@ export default class Comment extends Component {
     const {
       comment: { id },
     } = this.args;
+
     return id;
   }
 
@@ -64,10 +67,18 @@ export default class Comment extends Component {
     return this.showEditInput.commentIds.includes(this.commentId);
   }
 
+  get beingReplied() {
+    return this.showTextBox.commentIds.includes(this.commentId);
+  }
+
+  get isReplied() {
+    return this.showReply.commentIds.includes(this.commentId);
+  }
+
   @action delete() {
     this.showDeleteComment.registerId(this.commentId);
     this.showDeleteComment.showDelete();
-    
+
     const body = document.getElementsByClassName('main')[0];
     if (this.showDeleteComment.deleteComment) {
       body.classList.add('delete-comment');

@@ -1,6 +1,7 @@
 {{#if this.beingEdited }}
   <InputBox @commentId={{this.commentId}} @content={{this.content}} @currentUsr={{@currentUser}} @update={{true}}/>
-{{else if this.isNotDeleted}}
+{{!-- {{else if this.isNotDeleted}} --}}
+{{else}}
   <div>
     <div class="comment-div {{if this.isReply "reply-div"}}">
       <div>
@@ -37,8 +38,31 @@
 {{/if}}
     </div>
 
-{{#if this.showTextBox}}
-  <InputBox @currentUsr={{@currentUser}} @reply={{true}}/>
+{{#if this.isReplied}}
+<div class="reply-container">
+  <div class="reply-line"></div>
+  <div class="comment-div reply-div">
+      <div>
+        <div class="comment-header">
+          <div class="avatar">
+            <img src={{@currentUser.webp}} alt="avatar">
+          </div>
+          <p><strong>{{@currentUser.username}}</strong></p>
+          <p>{{this.lastReply.createdAt}}</p>
+        </div>
+        <div class="comment-text"><span>{{this.lastReply.replyingTo}}</span> {{this.lastReply.content}}</div>
+      </div>
+      <div class="count">
+        <div><img src="../../assets/images/icon-plus.svg" alt="plus icon"></div>
+        <span class="score">0</span>
+        <div class="minus-icon"><img src="../../assets/images/icon-minus.svg" alt="minus icon"></div>
+      </div>
+    </div> 
+    </div>
+{{/if}}
+
+{{#if this.beingReplied}}
+  <InputBox @replyingTo={{@comment.user.username}} @commentId={{this.commentId}} @content={{''}}  @currentUsr={{@currentUser}} @reply={{true}}/>
 {{/if}}
 </div>
 

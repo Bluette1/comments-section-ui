@@ -7,8 +7,8 @@ export default class IndexRoute extends Route {
   async model() {
     let user = this.store.findRecord('user', '1');
 
-    let commentItems = this.store.findAll('comment');
-    this.comments.initData(commentItems);
+    let commentItems = await this.store.findAll('comment');
+    await this.comments.initData(commentItems);
 
     return { currentUser: user };
   }
