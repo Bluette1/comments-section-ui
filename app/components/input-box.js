@@ -18,7 +18,6 @@ export default class InputBoxComponent extends Component {
 
     this.showEditInput.showEdit(commentId);
     this.comments.update(commentId, this.content);
-
   }
 
   @action reply() {
@@ -46,22 +45,21 @@ export default class InputBoxComponent extends Component {
     };
     const found = this.findCommentIdx(commentId, this.comments.items);
     if (found) {
-      const[index, comment] = found;
+      const [index, comment] = found;
 
-    if(!comment.replies) {
-      comment.replies = A([]);
-    }
-    comment.replies.pushObject(reply);
+      if (!comment.replies) {
+        comment.replies = A([]);
+      }
+      comment.replies.pushObject(reply);
 
-    this.comments.lastReply = reply;
-    const items = this.comments.items;
-    this.comments.items = [
-      ...items.slice(0, index),
-      comment,
-      ...items.slice(index + 1),
-    ];
-    localStorage.setItem('items', JSON.stringify(this.comments.items));
-
+      this.comments.lastReply = reply;
+      const items = this.comments.items;
+      this.comments.items = [
+        ...items.slice(0, index),
+        comment,
+        ...items.slice(index + 1),
+      ];
+      localStorage.setItem('items', JSON.stringify(this.comments.items));
     } else {
       let found;
       let foundIndex;

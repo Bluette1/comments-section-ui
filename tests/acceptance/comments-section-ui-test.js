@@ -13,7 +13,7 @@ module('Acceptance | comments section ui', function (hooks) {
     assert.dom('.main').exists();
   });
 
-  test('clicking reply btn', function (assert) {
+  test.skip('clicking reply btn', function (assert) {
     const done = assert.async();
     assert.expect(4);
     run(() => {
@@ -66,7 +66,7 @@ module('Acceptance | comments section ui', function (hooks) {
       });
     });
   });
-
+  
   test('clicking cancel button on delete button', async function (assert) {
     assert.expect(5);
     const done = assert.async();
