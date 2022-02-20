@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { A } from '@ember/array';
 
 export default class CommentsService extends Service {
-  @tracked items = A([]);
+  @tracked items = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : A([]);
   @tracked lastReply = null;
 
   @action async initData(data) {
@@ -18,10 +18,11 @@ export default class CommentsService extends Service {
           this.getReplies(replies).then((responses) => {
             set(itm, 'replies', responses);
             this.items.pushObject(itm);
+              localStorage.setItem('items', JSON.stringify(this.items));
           });
-        }
-      );
+        });
     });
+
   }
 
   async getReplies(replies) {
@@ -44,5 +45,67 @@ export default class CommentsService extends Service {
 
   @action remove(commentId) {
     this.items = this.items.filter((comment) => commentId !== comment.id);
+    let idx = 0;
+    this.items.forEach((item) => {
+      item.replies.forEach((itm) => {
+        if (itm.id === commentId) {
+          item.replies.removeObject(itm);
+        }
+        const comments = this.items;
+          this.items = [
+            ...comments.slice(0, idx),
+            item,
+            ...comments.slice(idx + 1),
+          ];
+      });
+      idx += 1;
+    });
+    localStorage.setItem('items', JSON.stringify(this.items));
+  }
+
+  @action update(commentId, content) {
+    let idx = 0;
+    
+    this.items.forEach((comment) => {
+
+      if (comment.id === commentId) {
+        comment.content = content;
+        const itms = this.items;
+        this.items = [
+          ...itms.slice(0, idx),
+          comment,
+          ...itms.slice(idx + 1),
+        ];
+      }
+      
+      let replyIdx = 0;
+      comment.replies.forEach((reply) => {
+        if (reply.id === commentId) {
+          reply.content = content;
+          console.log('reply.content: ', reply.content);
+          console.log('content', content)
+          const replies = comment.replies;
+          comment.replies = [
+            ...replies.slice(0, replyIdx),
+            reply,
+            ...replies.slice(replyIdx + 1),
+          ];
+
+          const comments = this.items;
+          this.items = [
+            ...comments.slice(0, idx),
+            comment,
+            ...comments.slice(idx + 1),
+          ];
+
+        }
+
+        replyIdx += 1;
+      });
+      
+      idx += 1;
+    });
+    localStorage.setItem('items', JSON.stringify(this.items));
+    window.location.reload();
   }
 }

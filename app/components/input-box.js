@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-// import ObjectProxy from '@ember/object/proxy';
+import { A } from '@ember/array';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { service, inject } from '@ember/service';
@@ -15,13 +15,10 @@ export default class InputBoxComponent extends Component {
 
   @action update() {
     const { commentId } = this.args;
-    this.showEditInput.showEdit(commentId);
 
-    this.comments.items.forEach((comment) => {
-      if (comment.id == commentId) {
-        comment.content = this.content;
-      }
-    });
+    this.showEditInput.showEdit(commentId);
+    this.comments.update(commentId, this.content);
+
   }
 
   @action reply() {
@@ -34,8 +31,6 @@ export default class InputBoxComponent extends Component {
     // find the comment in the items collection
     // create the comment
     // add the comment to replies
-
-    const [index, comment] = this.findCommentIdx(commentId);
     const reply = {
       id: length + 1,
       content: this.content,
@@ -49,22 +44,53 @@ export default class InputBoxComponent extends Component {
       createdAt: 'seconds ago',
       replies: [],
     };
-    // comment.replies.pushObject(reply);
+    const found = this.findCommentIdx(commentId, this.comments.items);
+    if (found) {
+      const[index, comment] = found;
+
+    if(!comment.replies) {
+      comment.replies = A([]);
+    }
+    comment.replies.pushObject(reply);
+
     this.comments.lastReply = reply;
     const items = this.comments.items;
     this.comments.items = [
       ...items.slice(0, index),
       comment,
-      ...items.slice(index + 1, index),
+      ...items.slice(index + 1),
     ];
+    localStorage.setItem('items', JSON.stringify(this.comments.items));
 
-    // Update this.showReply service
-    this.showReply.showRes(commentId);
+    } else {
+      let found;
+      let foundIndex;
+      for (let index = 0; index < this.comments.items.length; index++) {
+        const item = this.comments.items[index];
+        found = this.findCommentIdx(commentId, item.replies);
+        foundIndex = index;
+        if (found) {
+          break;
+        }
+      }
+      const comment = this.comments.items[foundIndex];
+      if (!comment.replies) {
+        comment.replies = A([]);
+      }
+      comment.replies.pushObject(reply);
+      const items = this.comments.items;
+      this.comments.items = [
+        ...items.slice(0, foundIndex),
+        comment,
+        ...items.slice(foundIndex + 1),
+      ];
+      localStorage.setItem('items', JSON.stringify(this.comments.items));
+    }
   }
 
-  findCommentIdx(commentId) {
-    for (let index = 0; index < this.comments.items.length; index++) {
-      const comment = this.comments.items[index];
+  findCommentIdx(commentId, array) {
+    for (let index = 0; index < array.length; index++) {
+      const comment = array[index];
       if (comment.id === commentId) {
         return [index, comment];
       }

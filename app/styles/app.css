@@ -148,6 +148,11 @@ a:hover {
 
 .reply-div {
   margin-top: 2%;
+  width: 100%;
+}
+
+.comment-div.reply-div {
+  width: 87vw;
 }
 
 .reply-div .comment-header {

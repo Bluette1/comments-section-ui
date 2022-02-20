@@ -1,6 +1,5 @@
 {{#if this.beingEdited }}
   <InputBox @commentId={{this.commentId}} @content={{this.content}} @currentUsr={{@currentUser}} @update={{true}}/>
-{{!-- {{else if this.isNotDeleted}} --}}
 {{else}}
   <div>
     <div class="comment-div {{if this.isReply "reply-div"}}">
@@ -19,7 +18,7 @@
         <span class="score">{{@comment.score}}</span>
         <div class="minus-icon"><img src="../../assets/images/icon-minus.svg" alt="minus icon"></div>
       </div>
-{{#if this.isCurrentUser}}
+  {{#if this.isCurrentUser}}
     <div class="edit-delete">
       <button type="button" class="delete-btn" {{on "click" this.delete}}>
         <span><img src="../../assets/images/icon-delete.svg" alt="delete icon"/></span>
@@ -30,36 +29,13 @@
         <span>Edit</span>
       </button>
     </div>
-{{else}}
-      <button type="button" class="reply" {{on "click" this.textInput}}>
-        <span><img src="../../assets/images/icon-reply.svg" alt="reply icon"/></span>
-        <span>Reply</span>
-      </button>
-{{/if}}
-    </div>
-
-{{#if this.isReplied}}
-<div class="reply-container">
-  <div class="reply-line"></div>
-  <div class="comment-div reply-div">
-      <div>
-        <div class="comment-header">
-          <div class="avatar">
-            <img src={{@currentUser.webp}} alt="avatar">
-          </div>
-          <p><strong>{{@currentUser.username}}</strong></p>
-          <p>{{this.lastReply.createdAt}}</p>
-        </div>
-        <div class="comment-text"><span>{{this.lastReply.replyingTo}}</span> {{this.lastReply.content}}</div>
-      </div>
-      <div class="count">
-        <div><img src="../../assets/images/icon-plus.svg" alt="plus icon"></div>
-        <span class="score">0</span>
-        <div class="minus-icon"><img src="../../assets/images/icon-minus.svg" alt="minus icon"></div>
-      </div>
-    </div> 
-    </div>
-{{/if}}
+  {{else}}
+    <button type="button" class="reply" {{on "click" this.textInput}}>
+      <span><img src="../../assets/images/icon-reply.svg" alt="reply icon"/></span>
+      <span>Reply</span>
+    </button>
+  {{/if}}
+</div>
 
 {{#if this.beingReplied}}
   <InputBox @replyingTo={{@comment.user.username}} @commentId={{this.commentId}} @content={{''}}  @currentUsr={{@currentUser}} @reply={{true}}/>
