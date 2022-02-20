@@ -3,7 +3,7 @@ import { visit, currentURL, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { run, later } from '@ember/runloop';
 
-module('Acceptance | comments section ui', function (hooks) {
+module.only('Acceptance | comments section ui', function (hooks) { //eslint-disable-line
   setupApplicationTest(hooks);
 
   test('visiting /', async function (assert) {
@@ -13,7 +13,7 @@ module('Acceptance | comments section ui', function (hooks) {
     assert.dom('.main').exists();
   });
 
-  test.skip('clicking reply btn', function (assert) {
+  test('clicking reply btn', function (assert) {
     const done = assert.async();
     assert.expect(4);
     run(() => {
