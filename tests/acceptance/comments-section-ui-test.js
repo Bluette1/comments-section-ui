@@ -3,7 +3,7 @@ import { visit, currentURL, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { run, later } from '@ember/runloop';
 
-module.only('Acceptance | comments section ui', function (hooks) { //eslint-disable-line
+module.skip('Acceptance | comments section ui', function (hooks) {
   setupApplicationTest(hooks);
 
   test('visiting /', async function (assert) {
