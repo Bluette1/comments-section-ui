@@ -66,7 +66,7 @@ module('Acceptance | comments section ui', function (hooks) {
       });
     });
   });
-  
+
   test('clicking cancel button on delete button', async function (assert) {
     assert.expect(5);
     const done = assert.async();
