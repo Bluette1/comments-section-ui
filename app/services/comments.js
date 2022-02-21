@@ -8,9 +8,13 @@ export default class CommentsService extends Service {
     ? JSON.parse(localStorage.getItem('items'))
     : A([]);
   @tracked lastReply = null;
+  @tracked length = localStorage.getItem('length')
+    ? parseInt(localStorage.getItem('length'))
+    : 0;
 
   @action async initData(data) {
     await data.forEach(async (item) => {
+      this.length += 1;
       const itm = item.toJSON();
 
       Promise.all([item.get('id'), item.get('user'), item.get('replies')]).then(
@@ -18,6 +22,8 @@ export default class CommentsService extends Service {
           itm.id = id;
           itm.user = user.toJSON();
           this.getReplies(replies).then((responses) => {
+            this.length += 1;
+            localStorage.setItem('length', JSON.stringify(this.length));
             set(itm, 'replies', responses);
             this.items.pushObject(itm);
             localStorage.setItem('items', JSON.stringify(this.items));
@@ -62,6 +68,8 @@ export default class CommentsService extends Service {
       });
       idx += 1;
     });
+    this.length -= 1;
+    localStorage.setItem('length', JSON.stringify(this.length));
     localStorage.setItem('items', JSON.stringify(this.items));
   }
 

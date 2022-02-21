@@ -2,7 +2,7 @@
   <InputBox @commentId={{this.commentId}} @content={{this.content}} @currentUsr={{@currentUser}} @update={{true}}/>
 {{else}}
   <div>
-    <div class="comment-div {{if this.isReply "reply-div"}}">
+    <div class="comment-div {{if this.isReply "reply-div"}} {{if @comment.added "added"}}">
       <div>
         <div class="comment-header">
           <div class="avatar">

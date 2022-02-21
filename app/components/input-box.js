@@ -21,15 +21,11 @@ export default class InputBoxComponent extends Component {
   }
 
   @action reply() {
-    const length = 4; //Hard coded for now;
+    const length = this.comments.length;
 
     const { commentId, replyingTo, currentUsr } = this.args;
     this.showTextBox.showInput(commentId);
 
-    // add response to the comment
-    // find the comment in the items collection
-    // create the comment
-    // add the comment to replies
     const reply = {
       id: length + 1,
       content: this.content,
@@ -42,6 +38,7 @@ export default class InputBoxComponent extends Component {
       replyingTo,
       createdAt: 'seconds ago',
       replies: [],
+      added: true,
     };
     const found = this.findCommentIdx(commentId, this.comments.items);
     if (found) {
@@ -59,6 +56,8 @@ export default class InputBoxComponent extends Component {
         comment,
         ...items.slice(index + 1),
       ];
+      this.comments.length += 1;
+      localStorage.setItem('length', JSON.stringify(this.comments.length));
       localStorage.setItem('items', JSON.stringify(this.comments.items));
     } else {
       let found;
@@ -82,6 +81,8 @@ export default class InputBoxComponent extends Component {
         comment,
         ...items.slice(foundIndex + 1),
       ];
+      this.comments.length += 1;
+      localStorage.setItem('length', JSON.stringify(this.comments.length));
       localStorage.setItem('items', JSON.stringify(this.comments.items));
     }
   }
