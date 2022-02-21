@@ -12,7 +12,7 @@
     </label>
   {{else}}
     <label for="comment">
-      <Textarea placeholder="Add a comment..." name="comment" />
+      <Textarea @value={{this.content}} placeholder="Add a comment..." name="comment" />
     </label>
   {{/if}}
 
@@ -22,7 +22,7 @@
       {{else if @update}}
       <button type="button" class="input-update"  {{on "click" this.update}}>Update</button>
       {{else}}
-      <button type="button">Send</button>
+      <button type="button" {{on "click" this.new}}>Send</button>
       {{/if}}
   </div>
 </div>

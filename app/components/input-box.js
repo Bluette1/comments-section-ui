@@ -43,4 +43,23 @@ export default class InputBoxComponent extends Component {
     };
     this.comments.add(commentId, reply);
   }
+
+  @action new() {
+    const length = this.comments.length;
+    const { currentUsr } = this.args;
+    const comment = {
+      id: length + 1,
+      content: this.content,
+      user: {
+        ...currentUsr,
+        username: currentUsr.get('username'),
+        webp: currentUsr.get('webp'),
+      },
+      score: 0,
+      createdAt: 'seconds ago',
+      replies: [],
+    };
+    this.comments.new(comment);
+    this.content = '';
+  }
 }

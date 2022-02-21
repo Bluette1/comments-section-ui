@@ -5,6 +5,7 @@ import { service } from '@ember/service';
 export default class DeleteComponentComponent extends Component {
   @service showDeleteComment;
   @service comments;
+  @service showUpdate;
 
   @action delete() {
     this.showDeleteComment.showDelete();
@@ -21,5 +22,6 @@ export default class DeleteComponentComponent extends Component {
     const body = document.getElementsByClassName('main')[0];
     body.classList.remove('delete-comment');
     this.comments.remove(this.showDeleteComment.commentId);
+    this.showUpdate.update(this.showDeleteComment.commentId, '');
   }
 }

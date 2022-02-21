@@ -42,7 +42,7 @@ module('Acceptance | comments section ui', function (hooks) {
     });
   });
 
-  test.skip('clicking delete button', function (assert) {
+  test('clicking delete button', function (assert) {
     assert.expect(4);
     const done = assert.async();
     run(() => {

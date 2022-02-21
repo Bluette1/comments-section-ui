@@ -109,7 +109,6 @@ export default class CommentsService extends Service {
       idx += 1;
     });
     localStorage.setItem('items', JSON.stringify(this.items));
-    // window.location.reload();
   }
 
   @action add(commentId, reply) {
@@ -158,6 +157,13 @@ export default class CommentsService extends Service {
       localStorage.setItem('length', JSON.stringify(this.length));
       localStorage.setItem('items', JSON.stringify(this.items));
     }
+  }
+
+  @action new(comment) {
+    this.length += 1;
+    this.items.pushObject(comment);
+    localStorage.setItem('length', JSON.stringify(this.length));
+    localStorage.setItem('items', JSON.stringify(this.items));
   }
 
   findCommentIdx(commentId, array) {
