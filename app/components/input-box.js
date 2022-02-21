@@ -6,6 +6,7 @@ import { service, inject } from '@ember/service';
 export default class InputBoxComponent extends Component {
   @service showEditInput;
   @service showReply;
+  @service showUpdate;
   @service showTextBox;
   @inject store;
   @tracked content = this.args.content;
@@ -17,6 +18,7 @@ export default class InputBoxComponent extends Component {
 
     this.showEditInput.showEdit(commentId);
     this.comments.update(commentId, this.content);
+    this.showUpdate.update(commentId, this.content);
   }
 
   @action reply() {

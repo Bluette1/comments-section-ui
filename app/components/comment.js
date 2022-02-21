@@ -5,6 +5,7 @@ import { service } from '@ember/service';
 export default class Comment extends Component {
   @service showTextBox;
   @service showReply;
+  @service showUpdate;
   @service showDeleteComment;
   @service showEditInput;
   @service comments;
@@ -15,9 +16,7 @@ export default class Comment extends Component {
   }
 
   get lastReply() {
-    // if (this.comments.lastReply) {
     return this.comments.lastReply;
-    // }
   }
 
   @action textInput() {
@@ -42,6 +41,12 @@ export default class Comment extends Component {
     const user = comment.user.username;
     const currUser = currentUser.get('username');
     return user === currUser;
+  }
+  get isFirstLevelByCurrentUser() {
+    if (this.isCurrentUser && !this.isReply) {
+      return true;
+    }
+    return false;
   }
 
   @action edit() {
@@ -73,6 +78,10 @@ export default class Comment extends Component {
 
   get isReplied() {
     return this.showReply.commentIds.includes(this.commentId);
+  }
+
+  get hasBeenUpdated() {
+    return this.showUpdate.commentIds.includes(this.commentId);
   }
 
   @action delete() {

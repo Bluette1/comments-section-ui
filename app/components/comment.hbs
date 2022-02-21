@@ -2,7 +2,7 @@
   <InputBox @commentId={{this.commentId}} @content={{this.content}} @currentUsr={{@currentUser}} @update={{true}}/>
 {{else}}
   <div>
-    <div class="comment-div {{if this.isReply "reply-div"}} {{if @comment.added "added"}}">
+    <div class="comment-div {{if this.isReply "reply-div"}} {{if @comment.added "added"}} {{if this.isFirstLevelByCurrentUser "first-level-by-current-user"}}">
       <div>
         <div class="comment-header">
           <div class="avatar">
@@ -11,7 +11,13 @@
           <p><strong>{{@comment.user.username}}</strong></p>
           <p>{{@comment.createdAt}}</p>
         </div>
-        <div class="comment-text">{{#if this.isReply}} <span>{{this.replyTo}}</span> {{/if}} {{@comment.content}}</div>
+        <div class="comment-text">{{#if this.isReply}} <span>{{this.replyTo}}</span> {{/if}}
+        {{#if this.hasBeenUpdated}}
+          {{this.showUpdate.content}}
+        {{else}}
+          {{@comment.content}}
+        {{/if}}
+         </div>
       </div>
       <div class="count">
         <div><img src="../../assets/images/icon-plus.svg" alt="plus icon"></div>

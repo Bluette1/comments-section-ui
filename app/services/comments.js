@@ -109,7 +109,7 @@ export default class CommentsService extends Service {
       idx += 1;
     });
     localStorage.setItem('items', JSON.stringify(this.items));
-    window.location.reload();
+    // window.location.reload();
   }
 
   @action add(commentId, reply) {
