@@ -19,7 +19,7 @@ module('Acceptance | comments section ui', function (hooks) {
             assert.dom('.reply-btn').exists();
             done();
           });
-        }, 5000);
+        }, 0);
       });
     });
   });
@@ -37,7 +37,7 @@ module('Acceptance | comments section ui', function (hooks) {
             assert.dom('.update-btn').exists();
             done();
           });
-        }, 5000);
+        }, 0);
       });
     });
   });
@@ -55,7 +55,7 @@ module('Acceptance | comments section ui', function (hooks) {
             assert.dom('.delete-comment-div').exists();
             done();
           });
-        }, 5000);
+        }, 0);
       });
     });
   });
@@ -76,7 +76,7 @@ module('Acceptance | comments section ui', function (hooks) {
               done();
             });
           });
-        }, 5000);
+        }, 0);
       });
     });
   });
