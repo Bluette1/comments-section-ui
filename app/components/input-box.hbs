@@ -4,23 +4,25 @@
   </div>
   {{#if @update}}
     <label for="update">
-      <textarea value={{@content}} name="update"/>
+      <Textarea @value={{this.content}} name="update"/>
+    </label>
+  {{else if this.response}}
+   <label for="comment">
+      <Textarea @value={{this.content}} name="comment" />
     </label>
   {{else}}
     <label for="comment">
-      <textarea placeholder="Add a comment..." name="comment" />
+      <Textarea @value={{this.content}} placeholder="Add a comment..." name="comment" />
     </label>
   {{/if}}
 
-  <div class="reply-btn {{if @update "update-btn"}}">
-    <button type="button">
-      {{#if @reply}}
-        Reply
+  <div class="reply-btn {{if @update "update-btn"}}">   
+      {{#if this.response}}
+      <button type="button" class="input-reply" {{on "click" this.reply}}>Reply</button>
       {{else if @update}}
-        Update
+      <button type="button" class="input-update"  {{on "click" this.update}}>Update</button>
       {{else}}
-        Send
+      <button type="button" {{on "click" this.new}}>Send</button>
       {{/if}}
-    </button>
   </div>
 </div>

@@ -1,7 +1,7 @@
 import Model, { attr, hasMany } from '@ember-data/model';
 
 export default class UserModel extends Model {
-  @hasMany('comment', { async: true }) comments;
+  @hasMany('comment') comments;
   @attr webp;
   @attr username;
 }

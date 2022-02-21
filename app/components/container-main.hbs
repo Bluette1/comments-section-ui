@@ -2,11 +2,8 @@
     <div class="container-main">
       <div>
         <ul class="details">
-          {{#each @model.comments as |comment|}}
-            {{#if  comment.replyingTo}}
-            {{else}}
-              <li><CommentSection @commentReply={{comment}} @currentUser={{@model.currentUser}} /></li>
-            {{/if}}
+          {{#each this.comments.items as |comment|}}
+            <li><CommentSection @commentReply={{comment}} @currentUser={{@model.currentUser}} /></li>
           {{/each}}
         </ul>
       </div>

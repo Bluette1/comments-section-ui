@@ -148,6 +148,11 @@ a:hover {
 
 .reply-div {
   margin-top: 2%;
+  width: 100%;
+}
+
+.added {
+  width: 87vw;
 }
 
 .reply-div .comment-header {
@@ -346,6 +351,9 @@ textarea.update {
     width: 90%;
     height: 15.75em;
     left: 5%;
+  }
+  .added .count {
+    margin-top: -2%;
   }
 }
 

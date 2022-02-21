@@ -39,7 +39,7 @@ jobs:
         with:
           node-version: 12.x
           cache: npm
-          timeout_minutes: 8
+          timeout_minutes: 15
           max_attempts: 3
       - name: Install Dependencies
         run: npm ci

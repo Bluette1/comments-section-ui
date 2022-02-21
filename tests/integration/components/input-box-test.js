@@ -37,9 +37,6 @@ module('Integration | Component | input-box', function (hooks) {
     assert.dom('.reply-btn').exists();
     assert.dom('.reply-btn').hasText('Reply');
     assert.dom('label textarea').exists();
-    assert
-      .dom('label textarea')
-      .hasAttribute('placeholder', 'Add a comment...');
     assert.dom('label textarea').hasAttribute('name', 'comment');
   });
 
