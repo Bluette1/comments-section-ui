@@ -58,6 +58,7 @@ export default class InputBoxComponent extends Component {
       score: 0,
       createdAt: 'seconds ago',
       replies: [],
+      added: true,
     };
     this.comments.new(comment);
     this.content = '';

@@ -24,6 +24,28 @@ module('Acceptance | comments section ui', function (hooks) {
     });
   });
 
+  test('the create function works', function (assert) {
+    const done = assert.async();
+    assert.expect(4);
+    run(() => {
+      visit('/').then(() => {
+        later(() => {
+          assert.strictEqual(currentURL(), '/');
+          assert.dom('.main').exists();
+          assert.dom('.input-div ').exists();
+          fillIn('textarea', 'Hello, I am creating a new comment!').then(() => {
+            click('.reply-btn button').then(() => {
+              assert
+                .dom('.main')
+                .includesText('Hello, I am creating a new comment!');
+              done();
+            });
+          });
+        }, 0);
+      });
+    });
+  });
+
   test('clicking update btn', function (assert) {
     assert.expect(4);
     const done = assert.async();
@@ -139,20 +161,24 @@ module('Acceptance | comments section ui', function (hooks) {
         later(() => {
           assert.strictEqual(currentURL(), '/');
           assert.dom('.main').exists();
-          assert.dom('.first-level-by-current-user button.delete-btn').exists();
-          click('.first-level-by-current-user button.delete-btn').then(() => {
-            assert.dom('.delete-comment-div').exists();
-            click('button.delete').then(() => {
-              assert.dom('.delete-comment-div').doesNotExist();
-              assert
-                .dom('.first-level-by-current-user button.delete-btn')
-                .doesNotExist();
-              assert
-                .dom('.first-level-by-current-user button.edit-btn')
-                .doesNotExist();
-              done();
-            });
-          });
+          assert
+            .dom('.first-level-by-current-user.added button.delete-btn')
+            .exists();
+          click('.first-level-by-current-user.added button.delete-btn').then(
+            () => {
+              assert.dom('.delete-comment-div').exists();
+              click('button.delete').then(() => {
+                assert.dom('.delete-comment-div').doesNotExist();
+                assert
+                  .dom('.first-level-by-current-user.added button.delete-btn')
+                  .doesNotExist();
+                assert
+                  .dom('.first-level-by-current-user.added button.edit-btn')
+                  .doesNotExist();
+                done();
+              });
+            }
+          );
         }, 0);
       });
     });
