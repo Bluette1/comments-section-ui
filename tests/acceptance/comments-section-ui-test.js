@@ -18,9 +18,9 @@ module('Acceptance | comments section ui', function (hooks) {
     assert.expect(4);
     run(() => {
       visit('/').then(() => {
-        assert.strictEqual(currentURL(), '/');
-        assert.dom('.main').exists();
         later(() => {
+          assert.strictEqual(currentURL(), '/');
+          assert.dom('.main').exists();
           assert.dom('button.reply').exists();
           click('button.reply').then(() => {
             assert.dom('.reply-btn').exists();
@@ -36,9 +36,9 @@ module('Acceptance | comments section ui', function (hooks) {
     const done = assert.async();
     run(() => {
       visit('/').then(() => {
-        assert.strictEqual(currentURL(), '/');
-        assert.dom('.main').exists();
         later(() => {
+          assert.strictEqual(currentURL(), '/');
+          assert.dom('.main').exists();
           assert.dom('button.edit-btn').exists();
           click('button.edit-btn').then(() => {
             assert.dom('.update-btn').exists();
@@ -54,10 +54,10 @@ module('Acceptance | comments section ui', function (hooks) {
     const done = assert.async();
     run(() => {
       visit('/').then(() => {
-        assert.strictEqual(currentURL(), '/');
-        assert.dom('.main').exists();
         later(() => {
           assert.strictEqual(currentURL(), '/');
+          assert.dom('.main').exists();
+          assert.dom('button.delete-btn').exists();
           click('button.delete-btn').then(() => {
             assert.dom('.delete-comment-div').exists();
             done();
@@ -72,9 +72,9 @@ module('Acceptance | comments section ui', function (hooks) {
     const done = assert.async();
     run(() => {
       visit('/').then(() => {
-        assert.strictEqual(currentURL(), '/');
-        assert.dom('.main').exists();
         later(() => {
+          assert.strictEqual(currentURL(), '/');
+          assert.dom('.main').exists();
           assert.dom('button.delete-btn').exists();
           click('button.delete-btn').then(() => {
             assert.dom('.delete-comment-div').exists();
