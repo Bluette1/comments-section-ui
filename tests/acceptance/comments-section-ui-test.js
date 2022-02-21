@@ -26,7 +26,7 @@ module('Acceptance | comments section ui', function (hooks) {
             assert.dom('.reply-btn').exists();
             done();
           });
-        }, 2000);
+        }, 5000);
       });
     });
   });
@@ -44,7 +44,7 @@ module('Acceptance | comments section ui', function (hooks) {
             assert.dom('.update-btn').exists();
             done();
           });
-        }, 2000);
+        }, 5000);
       });
     });
   });
@@ -57,12 +57,12 @@ module('Acceptance | comments section ui', function (hooks) {
         assert.strictEqual(currentURL(), '/');
         assert.dom('.main').exists();
         later(() => {
-          assert.dom('button.delete-btn').exists();
+          assert.strictEqual(currentURL(), '/');
           click('button.delete-btn').then(() => {
             assert.dom('.delete-comment-div').exists();
             done();
           });
-        }, 2000);
+        }, 5000);
       });
     });
   });
@@ -83,7 +83,7 @@ module('Acceptance | comments section ui', function (hooks) {
               done();
             });
           });
-        }, 2000);
+        }, 5000);
       });
     });
   });
