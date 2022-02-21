@@ -352,7 +352,8 @@ textarea.update {
     height: 15.75em;
     left: 5%;
   }
-  .added .count {
+  .added .count,
+  .first-level-by-current-user .count {
     margin-top: -2%;
   }
 }
