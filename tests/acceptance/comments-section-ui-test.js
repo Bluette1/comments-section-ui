@@ -6,13 +6,6 @@ import { run, later } from '@ember/runloop';
 module('Acceptance | comments section ui', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /', async function (assert) {
-    await visit('/');
-
-    assert.strictEqual(currentURL(), '/');
-    assert.dom('.main').exists();
-  });
-
   test('clicking reply btn', function (assert) {
     const done = assert.async();
     assert.expect(4);
