@@ -3,7 +3,7 @@ import { visit, currentURL, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { run, later } from '@ember/runloop';
 
-module.skip('Acceptance | comments section ui', function (hooks) {
+module('Acceptance | comments section ui', function (hooks) {
   setupApplicationTest(hooks);
 
   test('visiting /', async function (assert) {
@@ -26,7 +26,7 @@ module.skip('Acceptance | comments section ui', function (hooks) {
             assert.dom('.reply-btn').exists();
             done();
           });
-        }, 0);
+        }, 2000);
       });
     });
   });
@@ -44,7 +44,7 @@ module.skip('Acceptance | comments section ui', function (hooks) {
             assert.dom('.update-btn').exists();
             done();
           });
-        }, 0);
+        }, 2000);
       });
     });
   });
@@ -62,7 +62,7 @@ module.skip('Acceptance | comments section ui', function (hooks) {
             assert.dom('.delete-comment-div').exists();
             done();
           });
-        }, 0);
+        }, 2000);
       });
     });
   });
@@ -83,7 +83,7 @@ module.skip('Acceptance | comments section ui', function (hooks) {
               done();
             });
           });
-        }, 0);
+        }, 2000);
       });
     });
   });
