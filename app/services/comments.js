@@ -111,4 +111,61 @@ export default class CommentsService extends Service {
     localStorage.setItem('items', JSON.stringify(this.items));
     window.location.reload();
   }
+
+  @action add(commentId, reply) {
+    const found = this.findCommentIdx(commentId, this.items);
+    if (found) {
+      const [index, comment] = found;
+
+      if (!comment.replies) {
+        comment.replies = A([]);
+      }
+      comment.replies.pushObject(reply);
+
+      this.lastReply = reply;
+      const items = this.items;
+      this.items = [
+        ...items.slice(0, index),
+        comment,
+        ...items.slice(index + 1),
+      ];
+      this.length += 1;
+      localStorage.setItem('length', JSON.stringify(this.length));
+      localStorage.setItem('items', JSON.stringify(this.items));
+    } else {
+      let found;
+      let foundIndex;
+      for (let index = 0; index < this.items.length; index++) {
+        const item = this.items[index];
+        found = this.findCommentIdx(commentId, item.replies);
+        foundIndex = index;
+        if (found) {
+          break;
+        }
+      }
+      const comment = this.items[foundIndex];
+      if (!comment.replies) {
+        comment.replies = A([]);
+      }
+      comment.replies.pushObject(reply);
+      const items = this.items;
+      this.items = [
+        ...items.slice(0, foundIndex),
+        comment,
+        ...items.slice(foundIndex + 1),
+      ];
+      this.length += 1;
+      localStorage.setItem('length', JSON.stringify(this.length));
+      localStorage.setItem('items', JSON.stringify(this.items));
+    }
+  }
+
+  findCommentIdx(commentId, array) {
+    for (let index = 0; index < array.length; index++) {
+      const comment = array[index];
+      if (comment.id === commentId) {
+        return [index, comment];
+      }
+    }
+  }
 }
