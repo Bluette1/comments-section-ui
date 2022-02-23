@@ -3,7 +3,7 @@
     "type": "comments",
     "id": "5",
     "attributes": {
-      "content": "Have you used React testing with Javascript testing libraries like Jest?",
+      "content": "Have you used React Testing Library with Jest?",
       "created-at": "1 month ago",
       "score": 10
     },
