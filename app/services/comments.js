@@ -26,7 +26,7 @@ export default class CommentsService extends Service {
             localStorage.setItem('length', JSON.stringify(this.length));
             set(itm, 'replies', responses);
             this.items.pushObject(itm);
-            this.items=this.items.sortBy('id');
+            this.items = this.items.sortBy('id');
             localStorage.setItem('items', JSON.stringify(this.items));
           });
         }
