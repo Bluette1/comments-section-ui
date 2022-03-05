@@ -1,6 +1,8 @@
 # comments-section-ui
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6a39abd7-87cc-4e11-8431-6ac1450e778e/deploy-status)](https://app.netlify.com/sites/comments-section-ui/deploys)
 
+![Demo picture](./public/assets/images/screenshot.png)
+
 [Deployed site](https://comments-section-ui.netlify.app/)
 
 This README outlines the details of collaborating on this Ember application.
